@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">早餐</string>
+
+
+
+    <string name="retry">重新加载</string>
+    <string name="title_activity_login">Sign in</string>
+
+
+
+
+
+
+
+</resources>

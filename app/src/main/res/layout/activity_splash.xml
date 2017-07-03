@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    android:orientation="vertical" >
+
+    <ImageView android:id="@+id/loadImage"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_gravity="center_vertical|center_horizontal"
+         />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="@dimen/text_larger"
+
+        android:gravity="center_horizontal"
+        android:text="一个正在冉冉升起的管理系统\nCopy Right 2017."
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_larger" />
+</LinearLayout>

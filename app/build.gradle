@@ -1,0 +1,152 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.noveogroup.android.check'
+
+def cfg = rootProject.ext.configuration
+def libs = rootProject.ext.libraries
+
+android {
+    compileSdkVersion cfg.compileSdkVersion
+    buildToolsVersion cfg.buildToolsVersion
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId cfg.package
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdkVersion
+        versionCode cfg.versionCode
+        versionName cfg.versionName
+        //ADD THIS LINE:
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testHandleProfiling true
+        testFunctionalTest true
+        vectorDrawables.useSupportLibrary = true
+
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders =
+                    [
+                            host : "http://api.touchbiz.site:8000/",
+                            app_id: "ECE3F0CC04344BE0A255022EFBD5F4F0",
+                            channel : "android"
+                    ]
+
+        }
+        debug {
+            testCoverageEnabled = false
+            minifyEnabled false
+            manifestPlaceholders =
+                    [
+                            host : "http://api.touchbiz.site:8000/",
+                            app_id: "88E1A55B404344A9883D98A743A3701C",
+                            channel : "debug"
+                            //http://api.touchbiz.site:8000/
+                            //http://192.168.54.194:8000/
+                            //http://192.168.199.111:8000/
+                    ]
+        }
+    }
+    sourceSets {
+        instrumentTest.setRoot('src/test')
+        main { assets.srcDirs = ['src/main/assets', 'src/main/assets/2'] }
+    }
+
+    productFlavors {
+        //alpha {}
+    }
+
+    //ADD THESE LINES:
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'LICENSE.txt'
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    buildToolsVersion '25.0.0'
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //报表控件
+    releaseCompile project(path: ':library', configuration: 'release')
+    debugCompile project(path: ':library', configuration: 'debug')
+    compile "com.google.guava:guava:$libs.guavaVersion"
+    compile "com.jakewharton:butterknife:$libs.butterknife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$libs.butterknife"
+    compile "com.android.support:appcompat-v7:$libs.supportVersion"
+    compile "com.android.support:design:$libs.supportVersion"
+    compile "com.android.support:support-v4:$libs.supportVersion"
+    compile "com.android.support:recyclerview-v7:$libs.supportVersion"
+    //compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    compile "io.reactivex:rxjava:${libs.rxJava}"
+    compile "io.reactivex:rxandroid:${libs.rxAndroid}"
+    compile "com.artemzin.rxjava:proguard-rules:${libs.rxJavaProguard}"
+    //圆形头像
+    compile "com.android.support.test.espresso:espresso-idling-resource:$libs.espressoVersion"
+
+    compile 'com.cocosw:bottomsheet:1.+@aar'
+    compile 'com.wdullaer:materialdatetimepicker:3.2.0'
+    compile 'com.github.thinkcool:circletextimageview:1.0.20151218'
+    compile 'com.github.GrenderG:Toasty:1.2.5'
+    compile 'com.afollestad.material-dialogs:core:0.9.4.5'
+    compile 'com.yanzhenjie:recyclerview-swipe:1.0.4'
+    compile 'com.ashokvarma.android:bottom-navigation-bar:1.4.1'
+    compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+
+
+
+    // Espresso UI Testing
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$libs.espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-contrib:$libs.espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$libs.espressoVersion"
+    // Resolve conflicts between main and test APK:
+    androidTestCompile "com.android.support:support-annotations:$libs.supportVersion"
+    androidTestCompile "com.android.support:support-v4:$libs.supportVersion"
+    androidTestCompile "com.android.support:recyclerview-v7:$libs.supportVersion"
+    androidTestCompile "com.android.support:appcompat-v7:$libs.supportVersion"
+    androidTestCompile "com.android.support:design:$libs.supportVersion"
+    // test
+    testCompile "org.robolectric:shadows-httpclient:${libs.robolectricVersion}"
+    testCompile('com.squareup.assertj:assertj-android:1.1.0') {
+        exclude module: "support-annotations"
+    }
+    testCompile("org.robolectric:robolectric:${libs.robolectricVersion}") {
+        exclude module: 'commons-logging'
+    }
+
+    testCompile 'org.robolectric:android-all:5.0.0_r2-robolectric-1'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.+'
+    instrumentTestCompile 'junit:junit:4.12'
+    instrumentTestCompile 'org.robolectric:robolectric:3.1.1-SNAPSHOT'
+    instrumentTestCompile 'com.squareup:fest-android:1.0.+'
+}
+

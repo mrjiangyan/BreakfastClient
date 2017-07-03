@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!--主题色-->
+  <color name="colorPrimary">#455A64</color>
+  <color name="colorPrimaryDark">#263238</color>
+  <color name="colorAccent">#D50000</color>
+    <drawable name="touchFeedback">#CFD8DC</drawable>
+
+  <color name="color_accent_red">#F5622E</color>
+  <color name="color_accent_dark">#3F51B5</color>
+
+  <color name="color_green">#00C957</color>
+  <color name="color_green_dark">#00C999</color>
+  <!--文字颜色-->
+  <color name="text_primary">#333333</color>
+  <color name="text_secondary">#999999</color>
+
+    <!--背景色-->
+  <color name="divider">#CCCCCC</color>
+
+    <!--Button颜色-->
+  <color name="color_button_disabled">#CCCCCC</color>
+  <color name="color_button_disabled_dark">#999999</color>
+  <color name="color_button_pressed_ripple">@color/color_button_disabled</color>
+
+    <color name="white">#ffffffff</color>
+  <color name="transparent">#00000000</color>
+
+  <!-- 全黑-->
+  <color name="text_dark">#1B2336</color>
+  <!-- 50%黑-->
+  <color name="text_gray2">#801B2336</color>
+
+    <color name="text_gray_666666">#666666</color>
+
+
+  <color name="background">#CCCCCC</color>
+
+
+</resources>

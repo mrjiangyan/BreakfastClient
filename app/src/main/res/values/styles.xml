@@ -1,0 +1,149 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Base.AppTheme">
+        <item name="actionMenuTextAppearance">@style/MenuTextStyle</item>
+        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+    </style>
+
+    <style name="AppTheme.OverlapSystemBar" parent="Base.AppTheme" />
+
+    <style name="Base.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="actionMenuTextAppearance">@style/MenuTextStyle</item>
+        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+    </style>
+
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+
+
+    <!--Button Style-->
+    <style name="BaseButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textAppearance">@style/text.title</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:background">@drawable/selector_button_positive</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:minHeight">@dimen/button_min_height</item>
+    </style>
+
+
+    <style name="Button.Positive" parent="BaseButtonStyle" />
+
+    <style name="Button.Positive.Rounded" parent="Button.Positive">
+        <item name="android:background">@drawable/selector_button_positive_rounded</item>
+    </style>
+
+    <style name="Button.Negative" parent="BaseButtonStyle">
+        <item name="android:textColor">@drawable/color_button_negative_text</item>
+        <item name="android:background">@drawable/selector_button_negative</item>
+    </style>
+
+    <style name="Button.Negative.Rounded" parent="Button.Negative">
+        <item name="android:background">@drawable/selector_button_negative_rounded</item>
+    </style>
+
+
+    <style name="BaseTextAppearance" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+
+    <style name="TextStyle.Body" parent="BaseTextAppearance">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <style name="text.title" parent="BaseTextAppearance">
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textSize">@dimen/text_large</item>
+
+
+    </style>
+    <style name="text.titleGray" parent="BaseTextAppearance">
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textSize">@dimen/text_large</item>
+    </style>
+    <style name="text.content" parent="BaseTextAppearance">
+        <item name="android:textColor">@color/text_gray2</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+
+    </style>
+
+    <style name="MenuTextStyle" parent="BaseTextAppearance">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="Widget.CardContent" parent="android:Widget">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="input_line" >
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/selector_layout_positive</item>
+
+    </style>
+
+    <style name="toolBar"  parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?android:attr/actionBarSize</item>
+        <item name="android:background">@android:color/holo_blue_dark</item>
+        <item name="android:elevation" tools:targetApi="lollipop">4dp</item>
+        <item name="android:minHeight">?android:attr/actionBarSize</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <item name="android:actionMenuTextColor">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
+
+    <style name="divider_padding">
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingLeft">@dimen/margin_size</item>
+    </style>
+
+    <style name="divider_no_left_padding">
+        <item name="android:background">@color/white</item>
+
+    </style>
+
+    <style name="BottomSheet.StyleDialog" parent="BottomSheet.Dialog">
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:windowAnimationStyle">@style/BottomSheet.Animation</item>
+        <item name="android:textColorPrimary">@color/text_dark</item>
+        <item name="android:textColorSecondary">@color/text_primary</item>
+        <item name="android:textColorHint">#42ffffff</item>
+        <!--<item name="bs_dialogBackground">@color/abc_search_url_text_normal</item>-->
+        <item name="bs_dividerColor">@color/abc_search_url_text_pressed</item>
+        <item name="bs_numColumns">4</item>
+        <item name="android:textSize">@dimen/text_larger</item>
+        <item name="bs_listStyle">@style/BottomSheet.StyleList</item>
+    </style>
+
+    <style name="BottomSheet.StyleList" parent="Theme.AppCompat">
+       <item name="android:textSize">@dimen/text_larger</item>
+    </style>
+
+
+</resources>

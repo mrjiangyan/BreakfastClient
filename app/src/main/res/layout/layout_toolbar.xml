@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    app:layout_scrollFlags="exitUntilCollapsed"
+    >
+
+    <!--<android.support.design.widget.CollapsingToolbarLayout-->
+    <!--android:id="@+id/toolbar_layout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--app:contentScrim="?attr/colorPrimary"-->
+    <!--app:expandedTitleMarginEnd="64dp"-->
+    <!--app:expandedTitleMarginStart="48dp"-->
+    <!--app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlwaysCollapsed">-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/toolBar"
+        app:layout_collapseMode="pin"
+        app:layout_scrollFlags="exitUntilCollapsed"
+        app:navigationIcon="@null"
+        app:navigationContentDescription="@null"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <TextView
+            android:id="@+id/tv_toolbar_title"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/text_larger"
+            android:background="@color/transparent"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"  />
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <!--</android.support.design.widget.CollapsingToolbarLayout>-->
+</android.support.design.widget.AppBarLayout>

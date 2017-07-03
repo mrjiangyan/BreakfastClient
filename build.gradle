@@ -1,0 +1,70 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.3.2'
+    classpath 'me.tatarka:gradle-retrolambda:3.6.1'
+    classpath 'com.noveogroup.android:check:1.2.3'
+    classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
+
+    classpath 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.6'
+    classpath 'org.robovm:robovm-gradle-plugin:1.12.0'
+    configurations.classpath.exclude group: 'com.android.tools.external.lombok'
+
+
+  }
+}
+
+allprojects {
+  repositories {
+    maven {
+      url "https://jitpack.io"
+    }
+    jcenter()
+    mavenCentral()
+  }
+  /** To avoid writing this in every android module */
+  ext {
+    configuration = [
+                     package          : "com.breakfast.client",
+                     buildToolsVersion: "25.0.2",
+                     compileSdkVersion: 25,
+                     minSdkVersion    : 20,
+                     targetSdkVersion : 25,
+                     versionCode      : 14,
+                     versionName      : "1.0.14",]
+    libraries = [
+                 supportVersion       : "25.3.1",
+                 robolectricVersion   : "3.1.1",
+                 retrofit2            : "2.1.0",
+                 okhttp3              : "3.4.1",
+                 gson                 : "2.7",
+                 rxAndroid            : "1.2.1",
+                 rxJava               : "1.1.6",
+                 rxJavaProguard       : "1.1.6.0",
+                 dagger               : "2.0",
+                 javax_annotation     : "10.0-b28",
+                 butterknife          : "8.5.1",
+                 logUtils             : "1.0.6",
+                 recyclerrefreshlayout: "1.0.1",
+                 stetho               : "1.3.1",
+                 stethoOkhttp3        : "1.3.1",
+                 guavaVersion         : '19.0',
+                 espressoVersion      : '2.2.2'
+
+    ]
+  }
+  configurations.all {
+    resolutionStrategy.force "com.android.support:support-annotations:${libraries.supportVersion}"
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
+
+
+

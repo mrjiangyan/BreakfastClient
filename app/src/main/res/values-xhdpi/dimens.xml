@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_size">8dp</dimen>
+    <dimen name="text_larger">18sp</dimen>
+    <dimen name="text_large">16sp</dimen>
+    <dimen name="text_medium">14sp</dimen>
+    <dimen name="text_small">10sp</dimen>
+    <dimen name="text_smallest">7sp</dimen>
+    <dimen name="stroke_width">1dp</dimen>
+    <dimen name="stroke_height">16dp</dimen>
+</resources>

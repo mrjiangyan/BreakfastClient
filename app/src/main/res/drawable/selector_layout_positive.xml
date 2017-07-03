@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <!--<item android:drawable="@color/divider" android:state_enabled="false" android:state_focused="true" android:state_pressed="true"/>-->
+  <!--<item android:drawable="@color/divider" android:state_enabled="false" android:state_focused="false"/>-->
+  <!--<item android:drawable="@color/divider" android:state_focused="true" android:state_pressed="true"/>-->
+  <!--<item android:drawable="@color/divider" android:state_focused="false" android:state_pressed="true"/>-->
+  <!--<item android:drawable="@color/window_background"/>-->
+
+  <item android:state_pressed="true" android:drawable="@drawable/touchFeedback" />
+  <item android:state_selected="true" android:drawable="@drawable/touchFeedback" />
+  <item android:state_focused="true" android:drawable="@drawable/touchFeedback" />
+  <!-- default drawable -->
+  <item android:drawable="@color/white" />
+
+</selector>
+

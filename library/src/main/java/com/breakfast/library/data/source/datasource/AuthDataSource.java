@@ -1,0 +1,19 @@
+package com.breakfast.library.data.source.datasource;
+
+import android.support.annotation.NonNull;
+
+import com.breakfast.library.data.entity.user.User;
+
+import rx.Subscriber;
+
+/**
+ * Created by Steven on 2017/2/26.
+ */
+
+public interface AuthDataSource {
+
+    void login(@NonNull User user,
+               @NonNull Subscriber<User> subscriber);
+
+    void refreshToken(@NonNull Subscriber<String> subscriber);
+}
