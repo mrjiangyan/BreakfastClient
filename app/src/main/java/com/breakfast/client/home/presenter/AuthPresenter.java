@@ -11,6 +11,8 @@ import com.breakfast.library.network.internal.ApiException;
 import com.breakfast.library.network.internal.ErrorSubscriber;
 import com.breakfast.library.util.SecurityUtil;
 
+import okhttp3.OkHttpClient;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -39,8 +41,14 @@ public class AuthPresenter implements AuthContract.Presenter {
     }
 
     @Override
-    public void login(String account, String password) {
+    public void login(CharSequence url, CharSequence account, CharSequence password) {
         mView.resetError();
+        // Check for a valid email address.
+        if (TextUtils.isEmpty(url)) {
+            mView.showAccountIsEmptyErrorMessage();
+            return;
+        }
+
         // Check for a valid email address.
         if (TextUtils.isEmpty(account)) {
             mView.showAccountIsEmptyErrorMessage();
@@ -53,8 +61,10 @@ public class AuthPresenter implements AuthContract.Presenter {
             return;
         }
         User user=new User();
-        user.setMobile(account);
-        user.setPassword(password);
+        user.setMobile(account.toString());
+        user.setPassword(password.toString());
+
+
 
         mSource.login(user,new ErrorSubscriber<User>() {
             @Override public void onNext(User user) {

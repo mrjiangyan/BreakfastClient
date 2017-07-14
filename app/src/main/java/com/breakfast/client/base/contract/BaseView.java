@@ -17,12 +17,5 @@ public interface BaseView<T extends BasePresenter> {
   void showProcessing();
 
 
-  void needToRefresh(RefreshType type);
 
-  enum RefreshType
-  {
-      Self,
-      Parent,
-      Both
-  }
 }

@@ -30,10 +30,9 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @OnClick(R.id.sign_in_button)
     void showLogin() {
-        presenter.login(tv_mobile.getText().toString(),tv_password.getText().toString());
+
+        presenter.login(tv_mobile.getText().toString(), tv_mobile.getText().toString(), tv_password.getText().toString());
     }
-
-
 
     private AuthContract.Presenter presenter;
 
@@ -97,10 +96,7 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     }
 
-    @Override
-    public void needToRefresh(BaseView.RefreshType type) {
 
-    }
 
 
 }

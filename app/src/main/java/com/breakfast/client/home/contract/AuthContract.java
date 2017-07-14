@@ -24,7 +24,7 @@ public interface AuthContract {
 
     interface Presenter extends BasePresenter {
 
-        void login(String account,String password);
+        void login(CharSequence url, CharSequence account, CharSequence password);
 
         void refreshToken();
 

@@ -39,15 +39,7 @@ public class User extends BaseModel implements Parcelable{
         this.name = name;
     }
 
-    public Boolean getActivation() {
-        return activation;
-    }
 
-    public void setActivation(Boolean activation) {
-        this.activation = activation;
-    }
-
-    private Boolean activation;
 
     private String password;
 
@@ -78,7 +70,6 @@ public class User extends BaseModel implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
         dest.writeString(this.token);
-        dest.writeValue(this.activation);
         dest.writeString(this.password);
         dest.writeString(this.mobile);
         dest.writeString(this.name);
@@ -87,7 +78,6 @@ public class User extends BaseModel implements Parcelable{
     protected User(Parcel in) {
         super(in);
         this.token = in.readString();
-        this.activation = (Boolean) in.readValue(Boolean.class.getClassLoader());
         this.password = in.readString();
         this.mobile = in.readString();
         this.name = in.readString();
