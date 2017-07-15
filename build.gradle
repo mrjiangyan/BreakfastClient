@@ -7,12 +7,12 @@ buildscript {
   dependencies {
     classpath 'com.android.tools.build:gradle:2.3.2'
     classpath 'me.tatarka:gradle-retrolambda:3.6.1'
-    classpath 'com.noveogroup.android:check:1.2.3'
-    classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
+    //classpath 'com.noveogroup.android:check:1.2.3'
+    //classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
 
-    classpath 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.6'
-    classpath 'org.robovm:robovm-gradle-plugin:1.12.0'
-    configurations.classpath.exclude group: 'com.android.tools.external.lombok'
+    //classpath 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.6'
+    //classpath 'org.robovm:robovm-gradle-plugin:1.12.0'
+    //configurations.classpath.exclude group: 'com.android.tools.external.lombok'
 
 
   }
@@ -24,15 +24,15 @@ allprojects {
       url "https://jitpack.io"
     }
     jcenter()
-    mavenCentral()
+    //mavenCentral()
   }
   /** To avoid writing this in every android module */
   ext {
     configuration = [
                      package          : "com.breakfast.client",
-                     buildToolsVersion: "25.0.2",
+                     buildToolsVersion: "25.0.3",
                      compileSdkVersion: 25,
-                     minSdkVersion    : 20,
+                     minSdkVersion    : 21,
                      targetSdkVersion : 25,
                      versionCode      : 14,
                      versionName      : "1.0.14",]
