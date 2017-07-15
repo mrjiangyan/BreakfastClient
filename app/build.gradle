@@ -107,20 +107,12 @@ dependencies {
     compile "io.reactivex:rxjava:${libs.rxJava}"
     compile "io.reactivex:rxandroid:${libs.rxAndroid}"
     compile "com.artemzin.rxjava:proguard-rules:${libs.rxJavaProguard}"
-    //圆形头像
-    compile "com.android.support.test.espresso:espresso-idling-resource:$libs.espressoVersion"
 
-    //compile 'com.cocosw:bottomsheet:1.+@aar'
-    //compile 'com.wdullaer:materialdatetimepicker:3.2.0'
-    //compile 'com.github.thinkcool:circletextimageview:1.0.20151218'
+    compile "com.android.support.test.espresso:espresso-idling-resource:$libs.espressoVersion"
     compile 'com.github.GrenderG:Toasty:1.2.5'
     compile 'com.afollestad.material-dialogs:core:0.9.4.5'
     compile 'com.yanzhenjie:recyclerview-swipe:1.0.4'
     compile 'com.ashokvarma.android:bottom-navigation-bar:1.4.1'
-    //compile 'de.hdodenhof:circleimageview:2.0.0'
-    //compile 'com.github.bumptech.glide:glide:3.7.0'
-
-
 
 
     // Espresso UI Testing
