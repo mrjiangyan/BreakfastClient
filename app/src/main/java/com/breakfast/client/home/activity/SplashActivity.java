@@ -130,8 +130,5 @@ public class SplashActivity extends BaseActivity implements AuthContract.View {
 
     }
 
-    @Override
-    public void needToRefresh(RefreshType type) {
 
-    }
 }

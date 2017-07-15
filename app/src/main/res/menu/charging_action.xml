@@ -10,7 +10,6 @@
     </item>
     <item
         android:id="@+id/menu_more"
-        android:title="@string/bs_more"
         app:showAsAction="always">
 
     </item>

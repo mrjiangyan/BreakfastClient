@@ -222,10 +222,7 @@ public abstract class BaseFragment extends Fragment {
 
   }
 
-  public void needToRefresh(BaseView.RefreshType type)
-  {
 
-  }
 
 
   @Override

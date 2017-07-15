@@ -128,22 +128,22 @@
 
     </style>
 
-    <style name="BottomSheet.StyleDialog" parent="BottomSheet.Dialog">
-        <item name="android:backgroundDimAmount">0.5</item>
-        <item name="android:windowAnimationStyle">@style/BottomSheet.Animation</item>
-        <item name="android:textColorPrimary">@color/text_dark</item>
-        <item name="android:textColorSecondary">@color/text_primary</item>
-        <item name="android:textColorHint">#42ffffff</item>
-        <!--<item name="bs_dialogBackground">@color/abc_search_url_text_normal</item>-->
-        <item name="bs_dividerColor">@color/abc_search_url_text_pressed</item>
-        <item name="bs_numColumns">4</item>
-        <item name="android:textSize">@dimen/text_larger</item>
-        <item name="bs_listStyle">@style/BottomSheet.StyleList</item>
-    </style>
+    <!--<style name="BottomSheet.StyleDialog" parent="BottomSheet.Dialog">-->
+        <!--<item name="android:backgroundDimAmount">0.5</item>-->
+        <!--<item name="android:windowAnimationStyle">@style/BottomSheet.Animation</item>-->
+        <!--<item name="android:textColorPrimary">@color/text_dark</item>-->
+        <!--<item name="android:textColorSecondary">@color/text_primary</item>-->
+        <!--<item name="android:textColorHint">#42ffffff</item>-->
+        <!--&lt;!&ndash;<item name="bs_dialogBackground">@color/abc_search_url_text_normal</item>&ndash;&gt;-->
+        <!--<item name="bs_dividerColor">@color/abc_search_url_text_pressed</item>-->
+        <!--<item name="bs_numColumns">4</item>-->
+        <!--<item name="android:textSize">@dimen/text_larger</item>-->
+        <!--<item name="bs_listStyle">@style/BottomSheet.StyleList</item>-->
+    <!--</style>-->
 
-    <style name="BottomSheet.StyleList" parent="Theme.AppCompat">
-       <item name="android:textSize">@dimen/text_larger</item>
-    </style>
+    <!--<style name="BottomSheet.StyleList" parent="Theme.AppCompat">-->
+       <!--<item name="android:textSize">@dimen/text_larger</item>-->
+    <!--</style>-->
 
 
 </resources>
