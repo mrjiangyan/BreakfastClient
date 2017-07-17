@@ -3,6 +3,9 @@ package com.breakfast.client.home.contract;
 import com.breakfast.client.base.contract.BasePresenter;
 import com.breakfast.client.base.contract.BaseView;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
 /**
  * Created by Steven on 2017/2/26.
  */
@@ -16,6 +19,8 @@ public interface AuthContract {
 
         void resetError();
 
+        void showUrlIsEmptyErrorMessage();
+
         void showPasswordIsEmptyErrorMessage();
 
         void showAccountIsEmptyErrorMessage();
@@ -24,10 +29,7 @@ public interface AuthContract {
 
     interface Presenter extends BasePresenter {
 
-        void login(CharSequence url, CharSequence account, CharSequence password);
-
-        void refreshToken();
-
+       void login(CharSequence url, CharSequence account, CharSequence password);
 
     }
 }

@@ -33,7 +33,7 @@ public class SplashActivity extends BaseActivity implements AuthContract.View {
     @Override
     protected void initViews(Bundle savedInstanceState) {
         LogUtils.d("onCreate");
-        presenter = new AuthPresenter(new AuthDataSourceImpl(), this);
+        //presenter = new AuthPresenter(new AuthDataSourceImpl(), this);
         ImageView imageView = (ImageView) findViewById(R.id.loadImage);
         // 设置加载动画透明度渐变从（0.1不显示-1.0完全显示）
         animation = new AlphaAnimation(0.1f, 1.0f);
@@ -49,8 +49,6 @@ public class SplashActivity extends BaseActivity implements AuthContract.View {
                 if(SecurityUtil.getCurrentUser(getApplication())!= null)
                 {
                     isRunning=true;
-                    presenter.refreshToken();
-
                 }
             }
 
@@ -107,6 +105,11 @@ public class SplashActivity extends BaseActivity implements AuthContract.View {
 
     @Override
     public void showAccountIsEmptyErrorMessage() {
+
+    }
+
+    @Override
+    public void showUrlIsEmptyErrorMessage(){
 
     }
 

@@ -12,8 +12,7 @@ import rx.Observable;
 
 public interface IAuthService {
 
-  @POST("/auth/login") Observable<ApiResponse<User>> login(
-          @NonNull @Body User detail);
+  @POST("/auth/login") Observable<ApiResponse<String>> login(@NonNull @Body User detail);
 
   @POST("/auth/logout") Observable<ApiResponse<Void>> logout();
 

@@ -7,7 +7,7 @@
         app:showAsAction="always">
 
     </item>
-    <item
+    <item>
         android:id="@+id/menu_more"
         app:showAsAction="always">
 

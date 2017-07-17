@@ -3,8 +3,10 @@ package com.breakfast.library.network.protocol;
 import android.content.Context;
 
 import com.apkfuns.logutils.LogUtils;
+import com.breakfast.library.R;
 import com.breakfast.library.app.BaseApplication;
 import com.breakfast.library.network.internal.PmsHeaderInterceptor;
+import com.breakfast.library.util.ResourceUtils;
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
@@ -15,6 +17,8 @@ import com.google.gson.JsonSerializer;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.cert.Certificate;
@@ -52,7 +56,7 @@ public final class PmsServiceFactory {
 
     public static <T> T generateService(Class<T> clazz) {
         synchronized (PmsServiceFactory.class) {
-            return generateService(null,BaseApplication.getInstance(), clazz);
+            return generateService(ResourceUtils.getString(R.string.pms_base_url),BaseApplication.getInstance(), clazz);
         }
     }
 
@@ -121,7 +125,7 @@ public final class PmsServiceFactory {
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             builder = builder.addInterceptor(loggingInterceptor);
         }
-        final OkHttpClient client = builder.build();
+        final OkHttpClient client = builder.proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 8888))).build();
 
         sRetrofit = new Retrofit.Builder().baseUrl(baseUrl)
                 .client(client)

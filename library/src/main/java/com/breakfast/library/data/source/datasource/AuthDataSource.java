@@ -13,7 +13,5 @@ import rx.Subscriber;
 public interface AuthDataSource {
 
     void login(@NonNull User user,
-               @NonNull Subscriber<User> subscriber);
-
-    void refreshToken(@NonNull Subscriber<String> subscriber);
+               @NonNull Subscriber<String> subscriber);
 }

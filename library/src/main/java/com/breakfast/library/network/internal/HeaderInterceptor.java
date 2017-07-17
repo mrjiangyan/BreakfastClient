@@ -112,7 +112,7 @@ public class HeaderInterceptor implements Interceptor {
     public String getToken() {
         User user = SecurityUtil.getCurrentUser(BaseApplication.getInstance());
         if (user != null)
-            return user.getToken();
+            return user.getPassword();//gettoken
         return "";
     }
 

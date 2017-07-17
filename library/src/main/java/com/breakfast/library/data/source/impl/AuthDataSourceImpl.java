@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.breakfast.library.data.entity.user.User;
 import com.breakfast.library.data.source.datasource.AuthDataSource;
+import com.breakfast.library.network.protocol.PmsServiceFactory;
 import com.breakfast.library.network.protocol.ServiceFactory;
 import com.breakfast.library.network.protocol.security.IAuthService;
 
@@ -28,32 +29,20 @@ public class AuthDataSourceImpl implements AuthDataSource {
 
     private IAuthService mService;
 
+    private IAuthService pmsService;
+
     public AuthDataSourceImpl() {
-        mService = ServiceFactory.generateService(IAuthService.class);
-
+        pmsService = PmsServiceFactory.generateService(IAuthService.class);
     }
 
 
 
     @Override
-    public void login(@NonNull User user, @NonNull Subscriber<User> subscriber) {
-        mService.login(user)
+    public void login(@NonNull User user, @NonNull Subscriber<String> subscriber) {
+        pmsService.login(user)
                 .map(new ApiResponseFunc<>())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }
-
-
-
-    @Override
-    public void refreshToken(@NonNull Subscriber<String> subscriber) {
-        mService.refreshToken()
-                .map(new ApiResponseFunc<>())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscriber);
-    }
-
-
 }

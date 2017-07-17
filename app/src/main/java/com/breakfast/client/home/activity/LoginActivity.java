@@ -1,10 +1,11 @@
 package com.breakfast.client.home.activity;
 
 import android.os.Bundle;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.Toast;
 
-import com.breakfast.client.base.contract.BaseView;
 import com.breakfast.client.home.contract.AuthContract;
 import com.breakfast.client.util.DialogUtils;
 import com.breakfast.client.R;
@@ -12,6 +13,8 @@ import com.breakfast.client.base.BaseActivity;
 import com.breakfast.client.home.presenter.AuthPresenter;
 import com.breakfast.client.view.DeletableEditText;
 import com.breakfast.library.data.source.impl.AuthDataSourceImpl;
+
+import java.util.logging.Handler;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -22,8 +25,11 @@ import butterknife.OnClick;
  */
 public class LoginActivity extends BaseActivity implements AuthContract.View {
 
-    @BindView(R.id.tv_mobile)
-    DeletableEditText tv_mobile;
+    @BindView(R.id.tv_url)
+    DeletableEditText tv_url;
+
+    @BindView(R.id.tv_username)
+    DeletableEditText tv_username;
 
     @BindView(R.id.tv_password)
     DeletableEditText tv_password;
@@ -31,7 +37,9 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
     @OnClick(R.id.sign_in_button)
     void showLogin() {
 
-        presenter.login(tv_mobile.getText().toString(), tv_mobile.getText().toString(), tv_password.getText().toString());
+        //Toast.makeText(this,"登录啊",Toast.LENGTH_LONG).show();
+
+        presenter.login(tv_url.getText().toString(), tv_username.getText().toString(), tv_password.getText().toString());
     }
 
     private AuthContract.Presenter presenter;
@@ -44,21 +52,21 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        presenter = new AuthPresenter(new AuthDataSourceImpl(), this);
+        try{
+            presenter = new AuthPresenter(new AuthDataSourceImpl(), this);
+        }
+        catch (Exception e)
+        {
+           e.printStackTrace();
+        }
+
 
     }
-
-
-
-
-
-
-
-
     @Override
     public void showLoginSuccess() {
         finish();
         setIntentClass(MainActivity.class);
+
     }
 
     @Override
@@ -66,6 +74,11 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     }
 
+    @Override
+    public void showUrlIsEmptyErrorMessage(){
+        tv_url.setError("请输入Url");
+        tv_url.setShakeAnimation();
+    }
 
     @Override
     public void showPasswordIsEmptyErrorMessage() {
@@ -75,8 +88,8 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @Override
     public void showAccountIsEmptyErrorMessage() {
-        tv_mobile.setError("请输入账号");
-        tv_mobile.setShakeAnimation();
+        tv_username.setError("请输入账号");
+        tv_username.setShakeAnimation();
     }
 
     @Override

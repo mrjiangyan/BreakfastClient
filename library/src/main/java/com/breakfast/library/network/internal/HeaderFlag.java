@@ -32,4 +32,6 @@ public final class HeaderFlag {
   public static final String Accept = "accept";
 
   public static final String ContentLength = "Content-Length";
+
+  public static final String Cookie="Cookie";
 }

@@ -51,7 +51,13 @@ public abstract class BaseActivity extends AppCompatActivity implements BackHand
       setTitle("");
       getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
-    initViews(savedInstanceState);
+    try{
+      initViews(savedInstanceState);
+    }
+    catch (Exception e){
+      e.printStackTrace();
+    }
+
     EventBusCenter.register(this);
   }
 

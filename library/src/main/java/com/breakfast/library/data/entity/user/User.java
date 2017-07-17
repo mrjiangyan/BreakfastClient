@@ -4,24 +4,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.breakfast.library.data.entity.BaseModel;
+import com.breakfast.library.util.StringUtils;
 
 /**
  * Created by Steven on 2017/2/26.
  */
 
-public class User extends BaseModel implements Parcelable{
-
-
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String token;
+public class User extends BaseModel implements Parcelable {
 
     public String getPassword() {
         return password;
@@ -31,33 +20,39 @@ public class User extends BaseModel implements Parcelable{
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getUrl() {
+        return url;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUrl(String url) {
+        this.url = url;
     }
-
-
 
     private String password;
 
-    private String mobile;
+    private String userName;
 
-    private String name;
+    private String url;
 
-    public String getMobile() {
-        return mobile;
+    private String shift;
+
+    public String getUserName() {
+        return userName;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
+    public String getShift() {
+        return shift;
+    }
 
-    public User()
-    {
+    public void setShift(String shift) {
+        this.shift = shift;
+    }
+
+    public User() {
 
     }
 
@@ -69,18 +64,18 @@ public class User extends BaseModel implements Parcelable{
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         super.writeToParcel(dest, flags);
-        dest.writeString(this.token);
         dest.writeString(this.password);
-        dest.writeString(this.mobile);
-        dest.writeString(this.name);
+        dest.writeString(this.userName);
+        dest.writeString(this.url);
+        dest.writeString(StringUtils.isBlank(this.shift) ? "0" : this.shift);
     }
 
     protected User(Parcel in) {
         super(in);
-        this.token = in.readString();
         this.password = in.readString();
-        this.mobile = in.readString();
-        this.name = in.readString();
+        this.userName = in.readString();
+        this.url = in.readString();
+        this.shift = in.readString();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -94,4 +89,5 @@ public class User extends BaseModel implements Parcelable{
             return new User[size];
         }
     };
+
 }

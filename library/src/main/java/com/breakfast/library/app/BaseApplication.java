@@ -46,7 +46,7 @@ public class BaseApplication extends Application implements
    * 当UncaughtException发生时会转入该重写的方法来处理
    */
   public void uncaughtException(Thread thread, Throwable ex) {
-
+    ex.printStackTrace();
     android.os.Process.killProcess(android.os.Process.myPid());
     System.exit(0);
 

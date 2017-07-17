@@ -2,7 +2,9 @@ package com.breakfast.client.view;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.PowerManager;
+import android.support.annotation.RequiresApi;
 
 import com.apkfuns.logutils.LogUtils;
 import com.breakfast.client.util.DialogUtils;
@@ -25,6 +27,7 @@ import static android.os.Environment.getExternalStorageState;
  * Created by Steven on 2017/6/1.
  */
 
+@RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
 public class DownloadTask extends AsyncTask<AppCheck, Integer, String> {
 
 

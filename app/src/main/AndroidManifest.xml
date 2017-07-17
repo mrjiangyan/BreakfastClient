@@ -82,6 +82,7 @@
         <meta-data
             android:name="SECURE_KEY"
             android:value="6a69d702-4691-11e7-a1e5-6abf824cf6ef" />
+        //设置程序入口
         <activity android:name="com.breakfast.client.home.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -91,6 +92,7 @@
         <activity
             android:name="com.breakfast.client.home.activity.LoginActivity"
             android:clearTaskOnLaunch="true"
+            android:exported="true"
             android:label="@string/title_activity_login" />
         <activity
             android:name="com.breakfast.client.home.activity.MainActivity">
