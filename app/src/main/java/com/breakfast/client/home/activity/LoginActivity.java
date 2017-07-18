@@ -13,6 +13,7 @@ import com.breakfast.client.base.BaseActivity;
 import com.breakfast.client.home.presenter.AuthPresenter;
 import com.breakfast.client.view.DeletableEditText;
 import com.breakfast.library.data.source.impl.AuthDataSourceImpl;
+import com.breakfast.library.util.SharedPreferenceUtils;
 
 import java.util.logging.Handler;
 
@@ -36,7 +37,8 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @OnClick(R.id.sign_in_button)
     void showLogin() {
-
+        SharedPreferenceUtils.saveConfig(R.string.STRING_URL_ID,tv_url.getText().toString());
+        SharedPreferenceUtils.saveConfig(R.string.STRING_LOGIN_NAME_ID,tv_username.getText().toString());
         presenter.login(tv_url.getText().toString(), tv_username.getText().toString(), tv_password.getText().toString());
     }
 
@@ -50,21 +52,14 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        try{
-            presenter = new AuthPresenter(new AuthDataSourceImpl(), this);
-        }
-        catch (Exception e)
-        {
-           e.printStackTrace();
-        }
-
-
+        presenter = new AuthPresenter(new AuthDataSourceImpl(), this);
+        tv_url.setText(SharedPreferenceUtils.getString(R.string.STRING_URL_ID));
+        tv_username.setText(SharedPreferenceUtils.getString(R.string.STRING_LOGIN_NAME_ID));
     }
     @Override
     public void showLoginSuccess() {
         finish();
         setIntentClass(MainActivity.class);
-
     }
 
     @Override

@@ -36,7 +36,7 @@ public class LoginActivityTest {
 
         ViewInteraction deletableEditText2 = onView(
                 allOf(withId(R.id.tv_url), isDisplayed()));
-        deletableEditText2.perform(replaceText("localhost:31119"), closeSoftKeyboard());
+        deletableEditText2.perform(replaceText("http://localhost:31119"), closeSoftKeyboard());
 
         ViewInteraction deletableEditText3 = onView(
                 allOf(withId(R.id.tv_username), isDisplayed()));

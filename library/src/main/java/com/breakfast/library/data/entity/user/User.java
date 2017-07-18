@@ -10,7 +10,7 @@ import com.breakfast.library.util.StringUtils;
  * Created by Steven on 2017/2/26.
  */
 
-public class User extends BaseModel implements Parcelable {
+public class User implements Parcelable {
 
     public String getPassword() {
         return password;
@@ -63,7 +63,6 @@ public class User extends BaseModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        super.writeToParcel(dest, flags);
         dest.writeString(this.password);
         dest.writeString(this.userName);
         dest.writeString(this.url);
@@ -71,7 +70,6 @@ public class User extends BaseModel implements Parcelable {
     }
 
     protected User(Parcel in) {
-        super(in);
         this.password = in.readString();
         this.userName = in.readString();
         this.url = in.readString();

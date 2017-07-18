@@ -3,6 +3,7 @@ package com.breakfast.library.data.source.datasource;
 import android.support.annotation.NonNull;
 
 import com.breakfast.library.data.entity.user.User;
+import com.breakfast.library.data.entity.user.UserModel;
 
 import rx.Subscriber;
 
@@ -13,5 +14,5 @@ import rx.Subscriber;
 public interface AuthDataSource {
 
     void login(@NonNull User user,
-               @NonNull Subscriber<String> subscriber);
+               @NonNull Subscriber<UserModel> subscriber);
 }

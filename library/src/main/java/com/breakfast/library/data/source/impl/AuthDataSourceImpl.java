@@ -3,8 +3,8 @@ package com.breakfast.library.data.source.impl;
 import android.support.annotation.NonNull;
 
 import com.breakfast.library.data.entity.user.User;
+import com.breakfast.library.data.entity.user.UserModel;
 import com.breakfast.library.data.source.datasource.AuthDataSource;
-import com.breakfast.library.network.protocol.ServiceFactory;
 import com.breakfast.library.network.protocol.security.IAuthService;
 
 import rx.Subscriber;
@@ -37,7 +37,7 @@ public class AuthDataSourceImpl implements AuthDataSource {
 
 
     @Override
-    public void login(@NonNull User user, @NonNull Subscriber<String> subscriber) {
+    public void login(@NonNull User user, @NonNull Subscriber<UserModel> subscriber) {
         pmsService.login(user)
                 .map(new ApiResponseFunc<>())
                 .subscribeOn(Schedulers.io())

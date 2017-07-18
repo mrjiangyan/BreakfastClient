@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="STRING_URL_ID">URL</string>
+    <string name="STRING_LOGIN_NAME_ID">LOGIN_NAME</string>
+</resources>

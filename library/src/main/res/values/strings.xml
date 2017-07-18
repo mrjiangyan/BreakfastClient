@@ -8,5 +8,4 @@
 
   <string name="host">host</string>
   <string name="pms_token">pms_token</string>
-  <string name="pms_base_url">http://localhost:8090</string>
 </resources>
