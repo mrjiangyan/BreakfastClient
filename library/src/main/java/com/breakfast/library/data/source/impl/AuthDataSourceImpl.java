@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 
 import com.breakfast.library.data.entity.user.User;
 import com.breakfast.library.data.source.datasource.AuthDataSource;
-import com.breakfast.library.network.protocol.PmsServiceFactory;
 import com.breakfast.library.network.protocol.ServiceFactory;
 import com.breakfast.library.network.protocol.security.IAuthService;
 
@@ -32,7 +31,7 @@ public class AuthDataSourceImpl implements AuthDataSource {
     private IAuthService pmsService;
 
     public AuthDataSourceImpl() {
-        pmsService = PmsServiceFactory.generateService(IAuthService.class);
+        pmsService = ServiceFactory.generateService(IAuthService.class);
     }
 
 

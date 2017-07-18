@@ -37,8 +37,6 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
     @OnClick(R.id.sign_in_button)
     void showLogin() {
 
-        //Toast.makeText(this,"登录啊",Toast.LENGTH_LONG).show();
-
         presenter.login(tv_url.getText().toString(), tv_username.getText().toString(), tv_password.getText().toString());
     }
 

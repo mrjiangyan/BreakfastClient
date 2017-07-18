@@ -36,7 +36,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             manifestPlaceholders =
                     [
-                            host : "http://api.touchbiz.site:8000/",
+                            host : "http://127.0.0.1:8000/",
                             app_id: "ECE3F0CC04344BE0A255022EFBD5F4F0",
                             channel : "android"
                     ]
@@ -47,7 +47,7 @@ android {
             minifyEnabled false
             manifestPlaceholders =
                     [
-                            host : "http://api.touchbiz.site:8000/",
+                            host : "http://testebapi.51pms.net:80/",
                             app_id: "88E1A55B404344A9883D98A743A3701C",
                             channel : "debug"
                             //http://api.touchbiz.site:8000/

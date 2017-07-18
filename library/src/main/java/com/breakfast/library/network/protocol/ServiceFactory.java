@@ -7,6 +7,7 @@ import com.apkfuns.logutils.LogUtils;
 import com.breakfast.library.app.BaseApplication;
 import com.breakfast.library.data.entity.constants.MetaDataKeys;
 import com.breakfast.library.network.internal.HeaderInterceptor;
+import com.breakfast.library.network.internal.PmsHeaderInterceptor;
 import com.breakfast.library.util.AppUtils;
 import com.breakfast.library.util.SharedPreferenceUtils;
 import com.google.gson.ExclusionStrategy;
@@ -100,7 +101,7 @@ public final class ServiceFactory {
 
     private static Retrofit getRetrofit(Context context) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder().retryOnConnectionFailure(true)
-                .addInterceptor(new HeaderInterceptor(context));
+                .addInterceptor(new PmsHeaderInterceptor(context));
         builder = builder.readTimeout(15, TimeUnit.SECONDS).connectTimeout(15, TimeUnit.SECONDS);
 
         String baseUrl;

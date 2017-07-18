@@ -83,46 +83,29 @@ public class AuthPresenter implements AuthContract.Presenter {
         user.setPassword(password.toString());
         user.setShift("0");
 
-        handler=new android.os.Handler(){
-            @Override
-            public void handleMessage(Message message){
-                if(message!=null){
-                    System.out.println(message);
-                }
-            }
-        };
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                TestLogin(user);
-                Message m=handler.obtainMessage();
-                handler.sendMessage(m);
+
+
+        mSource.login(user,new ErrorSubscriber<String>() {
+            @Override public void onNext(String user) {
+
+                System.out.println(user);
+//                //绑定数据
+//                if (null != user ) {
+//                    SecurityUtil.save(BaseApplication.getInstance(),user);
+//                    mView.showLoginSuccess();
+//                }
+//                else
+//                {
+//                    mView.showErrorView(null,null);
+//                }
+
+            }
+
+            @Override public void onResponseError(ApiException ex) {
+                mView.showErrorView(ex.getMessage(),null);
             }
         });
-
-
-
-//        mSource.login(user,new ErrorSubscriber<String>() {
-//            @Override public void onNext(String user) {
-//
-//                System.out.println(user);
-////                //绑定数据
-////                if (null != user ) {
-////                    SecurityUtil.save(BaseApplication.getInstance(),user);
-////                    mView.showLoginSuccess();
-////                }
-////                else
-////                {
-////                    mView.showErrorView(null,null);
-////                }
-//
-//            }
-//
-//            @Override public void onResponseError(ApiException ex) {
-//                mView.showErrorView(ex.getMessage(),null);
-//            }
-//        });
     }
 
     private String TestLogin(User user){
