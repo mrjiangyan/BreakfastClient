@@ -2,4 +2,20 @@
 <resources>
     <string name="STRING_URL_ID">URL</string>
     <string name="STRING_LOGIN_NAME_ID">LOGIN_NAME</string>
+    <!-- Messages IDs -->
+    <item name="auto_focus" type="id"/>
+    <item name="decode" type="id"/>
+    <item name="decode_failed" type="id"/>
+    <item name="decode_succeeded" type="id"/>
+    <item name="launch_product_query" type="id"/>
+    <item name="quit" type="id"/>
+    <item name="restart_preview" type="id"/>
+    <item name="return_scan_result" type="id"/>
+    <item name="search_book_contents_failed" type="id"/>
+    <item name="search_book_contents_succeeded" type="id"/>
+    <item name="nearby_bottom_btn_category" type="id"/>
+    <item name="nearby_bottom_btn_eventid" type="id"/>
+    <item name="room" type="id"/>
+    <item name="roomDetail" type="id"/>
+    <item name="isPoint" type="id"/>
 </resources>

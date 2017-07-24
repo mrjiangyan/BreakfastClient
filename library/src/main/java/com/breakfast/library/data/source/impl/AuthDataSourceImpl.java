@@ -31,7 +31,7 @@ public class AuthDataSourceImpl implements AuthDataSource {
     private IAuthService pmsService;
 
     public AuthDataSourceImpl() {
-        pmsService = ServiceFactory.generateService(IAuthService.class);
+        //pmsService = ServiceFactory.generateService(IAuthService.class);
     }
 
 

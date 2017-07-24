@@ -23,7 +23,6 @@
   <color name="color_button_disabled_dark">#999999</color>
   <color name="color_button_pressed_ripple">@color/color_button_disabled</color>
 
-    <color name="white">#ffffffff</color>
   <color name="transparent">#00000000</color>
 
   <!-- 全黑-->
@@ -34,7 +33,63 @@
     <color name="text_gray_666666">#666666</color>
 
 
-  <color name="background">#CCCCCC</color>
+  <!--<color name="background">#CCCCCC</color>color-->
+
+
+  <color name="transparent_black">#90000000</color>
+  <color name="white">#FFFFFF</color>
+  <color name="btn_hui">#bebebe</color>
+  <color name="bf_title">#578C20</color>
+  <color name="transparent1">#9000</color>
+  <color name="temp_title">#808080</color>
+  <color name="listview_gray">#fafafa</color>
+  <color name="write1">#666666</color>
+  <color name="write2">#999</color>
+  <color name="gray1">#05ffffff</color>
+  <color name="color_ccc">#ccc</color>
+  <color name="bg_loWay">#85BE4D</color>
+  <color name="bg_loWay1">#7CAE4A</color>
+  <!--
+  美工给到的一版
+   <color name="background">#dedee0</color>
+  -->
+  <color name="textGreen">#BEE694</color>
+  <color name="editBg">#DEEFCB</color>
+  <color name="editRim">#669b31</color>
+  <color name="btnLogin">#375D10</color>
+  <color name="textLogin">#DCF0CB</color>
+  <color name="textlgpag">#375D10</color><!-- 登陆键背景 -->
+  <color name="line2">#669B31</color>
+  <color name="green4">#375D10</color><!-- 提示卡的位置 -->
+  <color name="green5">#BDC694</color><!-- 导航字颜色 -->
+  <color name="black1">#333333</color>
+  <!-- 自己取色的一版 -->
+  <color name="green1">#167904</color>
+  <color name="green">#507D21</color>
+  <color name="background">#e6e6e6</color>
+  <color name="white1">#FDFDFD</color>
+  <color name="black">#000000</color>
+  <color name="dialogbackgournd">#00000000</color>
+  <color name="content_background">#e5e5e5</color>
+  <color name="gray">#b3b3b3</color>
+  <color name="theme_green">#00CD00</color>
+  <color name="btn_green">#76b03f</color>
+  <color name="btn_off">#C8C8C8</color>
+  <color name="title1">#808080</color>
+  <color name="ui_child_bg">#FFFFFF</color>
+  <color name="line">#d5d6d0</color>
+  <color name="buyinfo">#666666</color>
+  <color name="red">#FF0000</color>
+  <!-- 个人中心 -->
+  <!-- 背景颜色 -->
+  <color name="amount_blue">#008fd1</color> <!-- 金额蓝字 -->
+  <color name="amount_green">#369833</color> <!-- 金额绿字 -->
+
+
+
+  <color name="item_selector">#dbdbdb</color>
+
+  <color name="list_header_item_bg">#f2f2f2</color>
 
 
 </resources>
