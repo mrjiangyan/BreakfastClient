@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.breakfast.client.view.RoomSelect"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#f5f6f0"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/indexBottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/btn_green"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btnTemp"
+            android:background="@null"
+            android:text="别样红酒店"
+            style="@style/temp_txt3"/>
+     <!--   <View
+            android:layout_width="1dip"
+            android:layout_height="15dp"
+            android:background="@color/white"/>-->
+
+        <Button
+            android:id="@+id/exit"
+            android:background="@null"
+            android:text="可用/总数"
+            style="@style/temp_txt3"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/indexBottom2"
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:background="@color/btn_green"
+        android:orientation="horizontal"
+        android:paddingBottom="0dp"
+        android:paddingTop="0dp"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btnTemp2"
+            android:background="@null"
+            android:text="周鸿祎"
+            style="@style/temp_txt3"/>
+
+        <Button
+            android:id="@+id/exit2"
+            android:background="@null"
+            android:text="20/200"
+            style="@style/temp_txt3"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginBottom="5dp"
+        android:background="#6d9c3e"/>
+    <!-- 输入框 -->
+
+    <RelativeLayout
+        android:id="@+id/inputLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txtInput"
+            style="@style/input_txt"
+            android:textSize="30sp"
+            android:textColorHint="@color/title1"
+            android:layout_alignParentLeft="true" />
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/indexUser"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:gravity="center">
+        <Button
+            android:id="@+id/userName"
+            android:background="@null"
+            android:text="石晨昊"
+            style="@style/temp_txt1"/>
+        <View
+            android:layout_width="1dip"
+            android:layout_height="15dp"
+            android:background="@color/gray"/>
+
+        <Button
+            android:id="@+id/userCount"
+            android:background="@null"
+            android:text="早餐：1份/2份"
+            style="@style/temp_txt1"/>
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp">
+        <TableRow>
+            <TableLayout
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            >
+
+            <LinearLayout style="@style/line_h" />
+
+            <TableRow>
+
+                <LinearLayout style="@style/line_v" />
+
+                <TextView
+                    android:id="@+id/one"
+                    style="@style/num_keyboard"
+                    android:tag="1"
+                    android:layout_height="80dp"
+                    android:text="1" />
+
+                <LinearLayout style="@style/line_v" />
+
+                <TextView
+                    android:id="@+id/two"
+                    style="@style/num_keyboard"
+                    android:tag="2"
+                    android:layout_height="80dp"
+                    android:text="2" />
+
+                <LinearLayout style="@style/line_v" />
+
+                <TextView
+                    android:id="@+id/three"
+                    style="@style/num_keyboard"
+                    android:tag="3"
+                    android:layout_height="80dp"
+                    android:text="3" />
+
+                <LinearLayout style="@style/line_v" />
+
+
+
+
+
+
+            </TableRow>
+
+            <LinearLayout style="@style/line_h" />
+
+            <TableRow>
+
+                <LinearLayout style="@style/line_v" />
+
+                <TextView
+                    android:id="@+id/four"
+                    style="@style/num_keyboard"
+                    android:tag="4"
+                    android:layout_height="80dp"
+                    android:text="4" />
+
+                <LinearLayout style="@style/line_v" />
+
+                <TextView
+                    android:id="@+id/five"
+                    style="@style/num_keyboard"
+                    android:tag="5"
+                    android:layout_height="80dp"
+                    android:text="5" />
+
+                <LinearLayout style="@style/line_v" />
+
+                <TextView
+                    android:id="@+id/six"
+                    style="@style/num_keyboard"
+                    android:tag="6"
+                    android:layout_height="80dp"
+                    android:text="6"
+                    />
+
+                <LinearLayout style="@style/line_v" />
+
+
+
+            </TableRow>
+
+            <LinearLayout style="@style/line_h" />
+
+            <TableRow>
+
+                <LinearLayout style="@style/line_v" />
+
+                <TextView
+                    android:id="@+id/seven"
+                    style="@style/num_keyboard"
+                    android:tag="7"
+                    android:layout_height="80dp"
+                    android:text="7" />
+
+                <LinearLayout style="@style/line_v" />
+
+                <TextView
+                    android:id="@+id/eight"
+                    style="@style/num_keyboard"
+                    android:tag="8"
+                    android:layout_height="80dp"
+                    android:text="8" />
+
+                <LinearLayout style="@style/line_v" />
+
+                <TextView
+                    android:id="@+id/nine"
+                    style="@style/num_keyboard"
+                    android:tag="9"
+                    android:layout_height="80dp"
+                    android:text="9" />
+
+                <LinearLayout style="@style/line_v" />
+
+
+            </TableRow>
+
+            <LinearLayout style="@style/line_h" />
+        </TableLayout>
+            <TableLayout
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                >
+                <LinearLayout style="@style/line_h" />
+                <TableRow>
+
+                    <LinearLayout style="@style/line_v" />
+
+                    <TextView
+                        android:id="@+id/zero"
+                        style="@style/num_keyboard"
+                        android:tag="7"
+                        android:layout_height="160dp"
+                        android:text="0" />
+
+                    <LinearLayout style="@style/line_v" />
+
+                </TableRow>
+                <LinearLayout style="@style/line_h" />
+                <TableRow>
+                    <LinearLayout style="@style/line_v" />
+                    <ImageButton
+                        android:id="@+id/de"
+                        style="@style/num_keyboard"
+                        android:layout_height="80dp"
+                        android:src="@drawable/delete_icon"
+                        />
+
+                    <LinearLayout style="@style/line_v" />
+                </TableRow>
+            </TableLayout>
+        </TableRow>
+    </TableLayout>
+
+   <!-- fill_parent-->
+
+
+
+
+</LinearLayout>
