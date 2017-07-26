@@ -1,9 +1,11 @@
 package com.breakfast.client.home.activity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.breakfast.client.home.contract.AuthContract;
@@ -58,6 +60,11 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
     }
     @Override
     public void showLoginSuccess() {
+        if(dialog!= null)
+        {
+            dialog.dismiss();
+            dialog= null;
+        }
         finish();
         setIntentClass(MainActivity.class);
     }
@@ -69,7 +76,7 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @Override
     public void showUrlIsEmptyErrorMessage(){
-        tv_url.setError("请输入Url");
+        tv_url.setError("请输入系统地址");
         tv_url.setShakeAnimation();
     }
 
@@ -92,6 +99,11 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @Override
     public void showErrorView(String errMsg, @Nullable View.OnClickListener onClickListener) {
+        if(dialog!= null)
+        {
+            dialog.dismiss();
+            dialog= null;
+        }
         DialogUtils.showToast(this,errMsg, DialogUtils.ToastType.error);
 
     }
@@ -100,10 +112,13 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
     @Override
     public void showProcessing() {
 
+        dialog= ProgressDialog.show(this,"登陆","努力登陆中...");
+        dialog.show();
     }
 
 
 
+    private ProgressDialog dialog=null;
 
 }
 

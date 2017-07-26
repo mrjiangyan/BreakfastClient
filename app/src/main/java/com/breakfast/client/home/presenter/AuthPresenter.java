@@ -3,13 +3,16 @@ package com.breakfast.client.home.presenter;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.util.DebugUtils;
 
 import com.breakfast.client.home.contract.AuthContract;
+import com.breakfast.library.app.BaseApplication;
 import com.breakfast.library.data.entity.user.User;
 import com.breakfast.library.data.entity.user.UserModel;
 import com.breakfast.library.data.source.datasource.AuthDataSource;
 import com.breakfast.library.network.internal.ApiException;
 import com.breakfast.library.network.internal.ErrorSubscriber;
+import com.breakfast.library.util.SecurityUtil;
 
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -66,31 +69,36 @@ public class AuthPresenter implements AuthContract.Presenter {
         user.setUserName(account.toString());
         user.setPassword(password.toString());
         user.setShift("0");
+        mView.showProcessing();
+        if(false) {
+            mSource.login(user, new ErrorSubscriber<UserModel>() {
+                @Override
+                public void onNext(UserModel userModelResultModel) {
 
-        mSource.login(user,new ErrorSubscriber<UserModel>() {
-            @Override public void onNext(UserModel userModelResultModel) {
+                    if (userModelResultModel != null) {
+                        //绑定数据
+                        System.out.println(user);
+                        if (null != user) {
+                            SecurityUtil.save(BaseApplication.getInstance(), user);
+                            mView.showLoginSuccess();
+                        }
+                        mView.showLoginSuccess();
+                    } else {
+                        mView.showErrorView(null, null);
+                    }
 
-                if(userModelResultModel!=null){
-                    mView.showLoginSuccess();
-                }else {
-                    mView.showErrorView(null,null);
+
                 }
-                //System.out.println(user);
-//                //绑定数据
-//                if (null != user ) {
-//                    SecurityUtil.save(BaseApplication.getInstance(),user);
-//                    mView.showLoginSuccess();
-//                }
-//                else
-//                {
-//                    mView.showErrorView(null,null);
-//                }
 
-            }
-
-            @Override public void onResponseError(ApiException ex) {
-                mView.showErrorView(ex.getMessage(),null);
-            }
-        });
+                @Override
+                public void onResponseError(ApiException ex) {
+                    mView.showErrorView(ex.getMessage(), null);
+                }
+            });
+        }
+        else
+        {
+            mView.showLoginSuccess();
+        }
     }
 }

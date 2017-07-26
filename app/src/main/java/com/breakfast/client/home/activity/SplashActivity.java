@@ -89,8 +89,6 @@ public class SplashActivity extends BaseActivity implements AuthContract.View {
     public void showLoginSuccess() {
         gotoHome();
 
-
-
     }
 
     @Override

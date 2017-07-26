@@ -1,59 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.breakfast.client.view.RoomSelect"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#f5f6f0"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/indexBottom"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
+        android:background="@android:color/holo_blue_dark"
         android:layout_height="wrap_content"
-        android:background="@color/btn_green"
-        android:orientation="horizontal"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        android:gravity="center">
-        <Button
-            android:id="@+id/btnTemp"
-            android:background="@null"
-            android:text="别样红酒店"
-            style="@style/temp_txt3"/>
-     <!--   <View
-            android:layout_width="1dip"
-            android:layout_height="15dp"
-            android:background="@color/white"/>-->
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/exit"
-            android:background="@null"
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/tv_hotelName"
+                style="@style/text.title"
+                android:text="别样红酒店" />
+
+            <TextView
+                android:id="@+id/tv_username"
+                style="@style/text.subTitle"
+                android:text="周鸿祎" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_count"
+            style="@style/text.title"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
             android:text="可用/总数"
-            style="@style/temp_txt3"/>
+            android:gravity="center_vertical|end"
+            android:padding="5dp" />
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/indexBottom2"
-        android:layout_width="fill_parent"
-        android:layout_height="20dp"
-        android:background="@color/btn_green"
-        android:orientation="horizontal"
-        android:paddingBottom="0dp"
-        android:paddingTop="0dp"
-        android:gravity="center">
-        <Button
-            android:id="@+id/btnTemp2"
-            android:background="@null"
-            android:text="周鸿祎"
-            style="@style/temp_txt3"/>
 
-        <Button
-            android:id="@+id/exit2"
-            android:background="@null"
-            android:text="20/200"
-            style="@style/temp_txt3"/>
-    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
@@ -88,21 +72,22 @@
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
         android:gravity="center">
-        <Button
+
+        <TextView
+            style="@style/text.title"
             android:id="@+id/userName"
             android:background="@null"
-            android:text="石晨昊"
-            style="@style/temp_txt1"/>
+            android:text="石晨昊" />
         <View
             android:layout_width="1dip"
             android:layout_height="15dp"
             android:background="@color/gray"/>
 
-        <Button
+        <TextView
+            style="@style/text.title"
             android:id="@+id/userCount"
             android:background="@null"
-            android:text="早餐：1份/2份"
-            style="@style/temp_txt1"/>
+            android:text="早餐：1份/2份" />
     </LinearLayout>
 
     <TableLayout

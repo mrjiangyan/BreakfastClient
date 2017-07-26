@@ -150,10 +150,15 @@ public abstract class BaseFragment extends Fragment {
       toolbar.setNavigationIcon(R.drawable.ic_back_arrow);
       toolbar.setNavigationContentDescription(null);
     }
-    toolbar.setTitle("");
-    tv_toolbar_title= (TextView) toolbar.findViewById(R.id.tv_toolbar_title);
-    setTitle(TextUtils.isEmpty(title) ? getTitle():title);
-    mActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(isShowNavigation());
+    if(toolbar!= null)
+    {
+      toolbar.setTitle("");
+      tv_toolbar_title= (TextView) toolbar.findViewById(R.id.tv_toolbar_title);
+      setTitle(TextUtils.isEmpty(title) ? getTitle():title);
+      mActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(isShowNavigation());
+
+    }
+
 
 
 

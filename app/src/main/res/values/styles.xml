@@ -59,25 +59,28 @@
     <style name="BaseTextAppearance" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textSize">@dimen/text_medium</item>
-        <item name="android:layout_centerVertical">true</item>
-        <item name="android:layout_gravity">center_vertical</item>
+        <!--<item name="android:layout_centerVertical">true</item>-->
+        <!--<item name="android:layout_gravity">center_vertical</item>-->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
 
     <style name="TextStyle.Body" parent="BaseTextAppearance">
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textSize">@dimen/text_small</item>
+
     </style>
 
     <style name="text.title" parent="BaseTextAppearance">
-        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/text_large</item>
 
 
     </style>
-    <style name="text.titleGray" parent="BaseTextAppearance">
-        <item name="android:textColor">@color/text_dark</item>
-        <item name="android:textSize">@dimen/text_large</item>
+    <style name="text.subTitle" parent="BaseTextAppearance">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_medium</item>
     </style>
     <style name="text.content" parent="BaseTextAppearance">
         <item name="android:textColor">@color/text_gray2</item>
@@ -90,13 +93,7 @@
     </style>
 
 
-    <style name="Widget.CardContent" parent="android:Widget">
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:paddingTop">24dp</item>
-        <item name="android:paddingBottom">24dp</item>
-        <item name="android:orientation">vertical</item>
-    </style>
+
 
     <style name="input_line" >
         <item name="android:orientation">vertical</item>

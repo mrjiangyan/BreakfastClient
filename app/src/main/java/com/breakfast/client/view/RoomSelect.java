@@ -14,7 +14,7 @@ public class RoomSelect extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_room_select);
+        //setContentView(R.layout.fragment_consume);
        /* Toolbar toolbar = (Toolbar) findViewById(0);
         setSupportActionBar(toolbar);
 

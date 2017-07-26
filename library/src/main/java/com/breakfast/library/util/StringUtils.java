@@ -91,7 +91,29 @@ public class StringUtils {
     return str;
   }
 
+  public static  String bytesToHexString(byte[] src) {
+    return bytesToHexString(src, true);
+  }
 
+  public static String bytesToHexString(byte[] src, boolean isPrefix) {
+    StringBuilder stringBuilder = new StringBuilder();
+    if (isPrefix == true) {
+      stringBuilder.append("0x");
+    }
+    if (src == null || src.length <= 0) {
+      return null;
+    }
+    char[] buffer = new char[2];
+    for (int i = 0; i < src.length; i++) {
+      buffer[0] = Character.toUpperCase(Character.forDigit(
+              (src[i] >>> 4) & 0x0F, 16));
+      buffer[1] = Character.toUpperCase(Character.forDigit(src[i] & 0x0F,
+              16));
+      System.out.println(buffer);
+      stringBuilder.append(buffer);
+    }
+    return stringBuilder.toString();
+  }
 
 
 }

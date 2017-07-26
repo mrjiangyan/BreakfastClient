@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.breakfast.client.view.RoomSelect"
-    tools:showIn="@layout/activity_room_select">
+    tools:showIn="@layout/fragment_consume">
 
     <TextView
         android:layout_width="wrap_content"
