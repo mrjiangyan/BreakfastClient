@@ -18,6 +18,31 @@ public class UserModel implements Parcelable {
     private String ownerName;
     private String shift;
     private String businessDate;
+    private String employeeName;
+
+    protected UserModel(Parcel in) {
+        sessionId = in.readString();
+        ownerId = in.readString();
+        orgId = in.readString();
+        orgName = in.readString();
+        defaultOrgId = in.readString();
+        ownerName = in.readString();
+        shift = in.readString();
+        businessDate = in.readString();
+        employeeName = in.readString();
+    }
+
+    public static final Creator<UserModel> CREATOR = new Creator<UserModel>() {
+        @Override
+        public UserModel createFromParcel(Parcel in) {
+            return new UserModel(in);
+        }
+
+        @Override
+        public UserModel[] newArray(int size) {
+            return new UserModel[size];
+        }
+    };
 
     public String getSessionId() {
         return sessionId;
@@ -83,6 +108,14 @@ public class UserModel implements Parcelable {
         this.businessDate = businessDate;
     }
 
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -90,24 +123,14 @@ public class UserModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.sessionId);
-        dest.writeString(this.businessDate);
+        dest.writeString(sessionId);
+        dest.writeString(ownerId);
+        dest.writeString(orgId);
+        dest.writeString(orgName);
+        dest.writeString(defaultOrgId);
+        dest.writeString(ownerName);
+        dest.writeString(shift);
+        dest.writeString(businessDate);
+        dest.writeString(employeeName);
     }
-
-    protected UserModel(Parcel in) {
-       this.sessionId=in.readString();
-        this.businessDate=in.readString();
-    }
-
-    public static final Creator<UserModel> CREATOR = new Creator<UserModel>() {
-        @Override
-        public UserModel createFromParcel(Parcel source) {
-            return new UserModel(source);
-        }
-
-        @Override
-        public UserModel[] newArray(int size) {
-            return new UserModel[size];
-        }
-    };
 }

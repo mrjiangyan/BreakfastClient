@@ -20,6 +20,4 @@ public interface IAuthService {
   
   @GET("/auth/refresh") Observable<ApiResponse<String>> refreshToken();
 
-
-
 }

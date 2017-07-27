@@ -24,7 +24,7 @@ import java.util.HashMap;
 import butterknife.BindView;
 
 
-public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener{
+public class MainActivity111 extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener{
 
 
     @BindView(R.id.bottom_navigation_bar)
@@ -38,7 +38,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     @Override
     protected int setLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.activity_main11;
     }
 
     @Override
@@ -163,14 +163,14 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 //                    lastCheckTime=Calendar.getInstance().getTimeInMillis();
 //                    if(appCheck!= null && !DownloadTask.isRun())
 //                    {
-//                        new MaterialDialog.Builder(MainActivity.this)
+//                        new MaterialDialog.Builder(MainActivity111.this)
 //                                .title("升级提示")
 //                                .content(appCheck.content)
 //                                //.positiveText(R.string.cancel)
 //                                .negativeText(R.string.upgrade)
 //                                .negativeColorRes(R.color.color_accent_red)
 //                                // .negativeColorRes(R.color.colorPrimary)
-//                                .onNegative((dd, who) -> DownloadTask.getInstance(MainActivity.this).execute(appCheck))
+//                                .onNegative((dd, who) -> DownloadTask.getInstance(MainActivity111.this).execute(appCheck))
 //                                .show();
 //                    }
 //                }
@@ -187,7 +187,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
                 && event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
             long secondTime=System.currentTimeMillis();
             if(secondTime-firstTime>1000){
-                DialogUtils.showToast(MainActivity.this,"再按一次退出程序", DialogUtils.ToastType.normal);
+                DialogUtils.showToast(MainActivity111.this,"再按一次退出程序", DialogUtils.ToastType.normal);
                 firstTime=secondTime;
                 return true;
             }else{

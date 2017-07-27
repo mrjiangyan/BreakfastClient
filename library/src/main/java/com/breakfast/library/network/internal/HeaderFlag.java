@@ -23,7 +23,9 @@ public final class HeaderFlag {
   /// </summary>
   public static final String ApiHeader = "apiheader";
   // 用户认证信息
-  public static final String UserToken = "token";
+  public static final String UserToken = "UserToken";
+
+  public static final String LoginId="LoginId";
   //请求编号
   public static final String RequestId = "requestId";
 
@@ -34,4 +36,5 @@ public final class HeaderFlag {
   public static final String ContentLength = "Content-Length";
 
   public static final String Cookie="Cookie";
+
 }

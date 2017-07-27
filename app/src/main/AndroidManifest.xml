@@ -66,10 +66,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-         <meta-data
-         android:name="HOST"
-         android:value="${host}" />
+        <meta-data
+            android:name="HOST"
+            android:value="${host}" />
         <meta-data
             android:name="TD_APP_ID"
             android:value="${app_id}" />
@@ -83,26 +82,23 @@
             android:name="SECURE_KEY"
             android:value="6a69d702-4691-11e7-a1e5-6abf824cf6ef" />
         //设置程序入口
-        <activity android:name="com.breakfast.client.home.activity.SplashActivity">
+        <activity android:name=".home.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.breakfast.client.home.activity.LoginActivity"
+            android:name=".home.activity.LoginActivity"
             android:clearTaskOnLaunch="true"
             android:exported="true"
             android:label="@string/title_activity_login" />
-        <activity
-            android:name="com.breakfast.client.home.activity.MainActivity">
+        <activity android:name=".home.activity.MainActivity111"></activity>
 
-        </activity>
-
-
-
-        <receiver android:name="com.breakfast.client.common.BootBroadcastReceiver">
+        <receiver android:name=".common.BootBroadcastReceiver">
             <intent-filter>
+
                 <!-- 注册开机广播地址 -->
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
@@ -110,7 +106,7 @@
             </intent-filter>
         </receiver>
 
-
+        <activity android:name=".home.activity.MainActivity"></activity>
     </application>
 
 </manifest>

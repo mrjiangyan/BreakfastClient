@@ -1,15 +1,18 @@
 package com.breakfast.client.home.presenter;
 
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import com.breakfast.client.R;
 import com.breakfast.client.home.contract.AuthContract;
 import com.breakfast.library.data.entity.user.User;
 import com.breakfast.library.data.entity.user.UserModel;
 import com.breakfast.library.data.source.datasource.AuthDataSource;
+import com.breakfast.library.data.source.datasource.BreakfastDataSource;
+import com.breakfast.library.data.source.impl.BreakfastDataSourceImpl;
 import com.breakfast.library.network.internal.ApiException;
 import com.breakfast.library.network.internal.ErrorSubscriber;
+import com.breakfast.library.util.SharedPreferenceUtils;
 
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -21,13 +24,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @SuppressWarnings("DefaultFileTemplate")
 public class AuthPresenter implements AuthContract.Presenter {
 
-    private Handler handler;
-
     private final AuthDataSource mSource;
+    private final BreakfastDataSource breakfastDataSource;
 
     private final AuthContract.View mView;
-
-
 
     @Override
     public void start() {
@@ -37,7 +37,7 @@ public class AuthPresenter implements AuthContract.Presenter {
     public AuthPresenter(@NonNull AuthDataSource userSource, @NonNull AuthContract.View userView) {
         mSource = checkNotNull(userSource, "userSource cannot be null");
         mView = checkNotNull(userView, "userView cannot be null!");
-
+        breakfastDataSource = new BreakfastDataSourceImpl();
         mView.setPresenter(this);
     }
 
@@ -70,11 +70,16 @@ public class AuthPresenter implements AuthContract.Presenter {
         mSource.login(user,new ErrorSubscriber<UserModel>() {
             @Override public void onNext(UserModel userModelResultModel) {
 
-                if(userModelResultModel!=null){
+                if (userModelResultModel != null) {
+                    SharedPreferenceUtils.saveConfig(R.string.STRING_URL_ID, user.getUrl());
+                    SharedPreferenceUtils.saveConfig(R.string.STRING_LOGIN_NAME_ID, user.getUserName());
+                    SharedPreferenceUtils.saveConfig(R.string.STRING_ORG_NAME_ID, userModelResultModel.getOrgName());
+                    SharedPreferenceUtils.saveConfig(R.string.STRING_EMPLOYEE_NAME_ID, userModelResultModel.getEmployeeName());
                     mView.showLoginSuccess();
-                }else {
-                    mView.showErrorView(null,null);
+                } else {
+                    mView.showErrorView(null, null);
                 }
+
                 //System.out.println(user);
 //                //绑定数据
 //                if (null != user ) {
