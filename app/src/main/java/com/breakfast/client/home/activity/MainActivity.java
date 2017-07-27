@@ -56,14 +56,13 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     // 滤掉组件无法响应和处理的Intent
     private IntentFilter tagDetected = null;
 
-
+    //记录用户首次点击返回键的时间
+    private long firstTime=0;
     // 是否支持NFC功能的标签
     private boolean isNFC_support = false;
 
     private final int MY_PERMISSIONS_REQUEST_READ_CONTACTS=1000;
 
-
-    private long lastCheckTime=0;
     private BaseFragment lastFragment;
 
     @Override
@@ -161,40 +160,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
                 // result of the request.
             }
         }
-        else if((Calendar.getInstance().getTimeInMillis()-lastCheckTime)>1000*60*60*8)
-        {
-//            new AppServiceImpl().check(new Subscriber<AppCheck>()
-//            {
-//
-//                @Override
-//                public void onCompleted() {
-//
-//                }
-//
-//                @Override
-//                public void onError(Throwable e) {
-//
-//                }
-//
-//                @Override
-//                public void onNext(AppCheck appCheck) {
-//                    lastCheckTime=Calendar.getInstance().getTimeInMillis();
-//                    if(appCheck!= null && !DownloadTask.isRun())
-//                    {
-//                        new MaterialDialog.Builder(MainActivity111.this)
-//                                .title("升级提示")
-//                                .content(appCheck.content)
-//                                //.positiveText(R.string.cancel)
-//                                .negativeText(R.string.upgrade)
-//                                .negativeColorRes(R.color.color_accent_red)
-//                                // .negativeColorRes(R.color.colorPrimary)
-//                                .onNegative((dd, who) -> DownloadTask.getInstance(MainActivity111.this).execute(appCheck))
-//                                .show();
-//                    }
-//                }
-//            });
-        }
-
         if (isNFC_support) {
             // 开始监听NFC设备是否连接
             startNFC_Listener();
@@ -209,8 +174,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     }
 
-    //记录用户首次点击返回键的时间
-    private long firstTime=0;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -306,29 +269,31 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
                     MifareData data= new MifareData();
                     data.setCardId(StringUtils.bytesToHexString(tagFromIntent.getId(),false) );
                     data.setData(StringUtils.bytesToHexString(NfcUtils.readMifareTag(tagFromIntent)));
+                    ring();
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            } else if (techList[i].equals(MifareUltralight.class.getName())) {
-                MifareUltralight mifareUlTag = MifareUltralight
-                        .get(tagFromIntent);
-                String lightType = "";
-                // Type Info
-                switch (mifareUlTag.getType()) {
-                    case MifareUltralight.TYPE_ULTRALIGHT:
-                        lightType = "Ultralight";
-                        break;
-                    case MifareUltralight.TYPE_ULTRALIGHT_C:
-                        lightType = "Ultralight C";
-                        break;
-                }
-                CardType = lightType + "卡片类型\n";
-
-                Ndef ndef = Ndef.get(tagFromIntent);
-                CardType += "最大数据尺寸:" + ndef.getMaxSize() + "\n";
-
             }
+//            else if (techList[i].equals(MifareUltralight.class.getName())) {
+//                MifareUltralight mifareUlTag = MifareUltralight
+//                        .get(tagFromIntent);
+//                String lightType = "";
+//                // Type Info
+//                switch (mifareUlTag.getType()) {
+//                    case MifareUltralight.TYPE_ULTRALIGHT:
+//                        lightType = "Ultralight";
+//                        break;
+//                    case MifareUltralight.TYPE_ULTRALIGHT_C:
+//                        lightType = "Ultralight C";
+//                        break;
+//                }
+//                CardType = lightType + "卡片类型\n";
+//
+//                Ndef ndef = Ndef.get(tagFromIntent);
+//                CardType += "最大数据尺寸:" + ndef.getMaxSize() + "\n";
+//
+//            }
             else if (techList[i].equals(NfcB.class.getName())) {
                 NfcB tag = NfcB
                         .get(tagFromIntent);

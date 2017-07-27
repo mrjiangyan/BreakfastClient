@@ -71,6 +71,7 @@ public class AuthPresenter implements AuthContract.Presenter {
             @Override public void onNext(UserModel userModelResultModel) {
 
                 if (userModelResultModel != null) {
+
                     SharedPreferenceUtils.saveConfig(R.string.STRING_URL_ID, user.getUrl());
                     SharedPreferenceUtils.saveConfig(R.string.STRING_LOGIN_NAME_ID, user.getUserName());
                     SharedPreferenceUtils.saveConfig(R.string.STRING_ORG_NAME_ID, userModelResultModel.getOrgName());
@@ -80,16 +81,6 @@ public class AuthPresenter implements AuthContract.Presenter {
                     mView.showErrorView(null, null);
                 }
 
-                //System.out.println(user);
-//                //绑定数据
-//                if (null != user ) {
-//                    SecurityUtil.save(BaseApplication.getInstance(),user);
-//                    mView.showLoginSuccess();
-//                }
-//                else
-//                {
-//                    mView.showErrorView(null,null);
-//                }
 
             }
 
