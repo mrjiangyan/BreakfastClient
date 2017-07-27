@@ -109,7 +109,6 @@ public class StringUtils {
               (src[i] >>> 4) & 0x0F, 16));
       buffer[1] = Character.toUpperCase(Character.forDigit(src[i] & 0x0F,
               16));
-      System.out.println(buffer);
       stringBuilder.append(buffer);
     }
     return stringBuilder.toString();
