@@ -35,12 +35,12 @@ import static okio.Okio.sink;
  */
 public class PmsHeaderInterceptor implements Interceptor {
 
-    private String token;
+    private String userToken;
     private final Context context;
 
     public PmsHeaderInterceptor(Context context) {
         this.context = context;
-        token = SharedPreferenceUtils.getString(R.string.pms_token);
+        userToken = SharedPreferenceUtils.getString(R.string.user_token);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class PmsHeaderInterceptor implements Interceptor {
         Request.Builder builder = originalRequest.newBuilder();
         try {
             builder = builder.header(HeaderFlag.Language, getLanguage())
-                    .header(HeaderFlag.Cookie, token)
+                    .header(HeaderFlag.UserToken, userToken)
                     .header(HeaderFlag.Version, HeaderFlag.RequestVersion)
                     .header(HeaderFlag.ContentLength, contentLength)
                     .header(HeaderFlag.Accept, "application/json");
@@ -62,7 +62,13 @@ public class PmsHeaderInterceptor implements Interceptor {
             e.printStackTrace();
         }
 
-        return chain.proceed(builder.build());
+        Response response = chain.proceed(builder.build());
+
+        if (response.header(HeaderFlag.LoginId, null) != null) {
+            SharedPreferenceUtils.saveConfig(R.string.user_token,response.header(HeaderFlag.LoginId));
+        }
+
+        return response;
     }
 
     public String getLanguage() {

@@ -2,6 +2,11 @@
 <resources>
     <string name="STRING_URL_ID">URL</string>
     <string name="STRING_LOGIN_NAME_ID">LOGIN_NAME</string>
+    <string name="STRING_HOTEL_BREAKFAST_TOTAL_COUNT_ID">HOTEL_BREAKFAST_TOTAL_COUNT</string>
+    <string name="STRING_HOTEL_BREAKFAST_USE_COUNT_ID">HOTEL_BREAKFAST_USE_COUNT</string>
+    <string name="STRING_HOTEL_BREAKFAST_TOTAL_AVAILABLE_COUNT_ID">HOTEL_BREAKFAST_TOTAL_AVAILABLE_COUNT</string>
+    <string name="STRING_EMPLOYEE_NAME_ID">EMPLOYEE_NAME</string>
+    <string name="STRING_ORG_NAME_ID">ORG_NAME</string>
     <!-- Messages IDs -->
     <item name="auto_focus" type="id"/>
     <item name="decode" type="id"/>

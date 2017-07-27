@@ -7,5 +7,5 @@
   <string name="err_server">服务器出错了～</string>
 
   <string name="host">host</string>
-  <string name="pms_token">pms_token</string>
+  <string name="user_token">user_token</string>
 </resources>

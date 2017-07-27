@@ -62,6 +62,7 @@ dependencies {
   //OkHttp
   compile "com.squareup.okhttp3:okhttp:${libs.okhttp3}"
   compile "com.squareup.okhttp3:logging-interceptor:${libs.okhttp3}"
+  compile('org.json:json:20170516')
 
   // test
   testCompile 'junit:junit:4.12'

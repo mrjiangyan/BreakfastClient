@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_size"
-                android:text="今日运营总览" />
+                android:text="酒店早餐统计" />
 
             <LinearLayout
                 android:layout_height="wrap_content"
@@ -40,6 +40,7 @@
                     android:padding="@dimen/text_large">
 
                     <TextView
+                        android:id="@+id/txtHotelTotalBreakfastCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/margin_size"
@@ -50,7 +51,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="签到数" />
+                        android:text="总早餐数" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -62,6 +63,7 @@
                     android:padding="@dimen/text_large">
 
                     <TextView
+                        android:id="@+id/txtHotelTotalAvailableBreakfastCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/margin_size"
@@ -73,7 +75,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="报名数" />
+                        android:text="可用早餐" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -85,6 +87,7 @@
                     android:padding="@dimen/text_large">
 
                     <TextView
+                        android:id="@+id/txtHotelTotalUseBreakfastCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/margin_size"
@@ -96,7 +99,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="签到人数" />
+                        android:text="已用早餐" />
                 </LinearLayout>
             </LinearLayout>
 

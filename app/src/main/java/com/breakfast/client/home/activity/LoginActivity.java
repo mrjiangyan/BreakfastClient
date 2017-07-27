@@ -1,12 +1,8 @@
 package com.breakfast.client.home.activity;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.breakfast.client.home.contract.AuthContract;
 import com.breakfast.client.util.DialogUtils;
@@ -16,8 +12,6 @@ import com.breakfast.client.home.presenter.AuthPresenter;
 import com.breakfast.client.view.DeletableEditText;
 import com.breakfast.library.data.source.impl.AuthDataSourceImpl;
 import com.breakfast.library.util.SharedPreferenceUtils;
-
-import java.util.logging.Handler;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -39,8 +33,6 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @OnClick(R.id.sign_in_button)
     void showLogin() {
-        SharedPreferenceUtils.saveConfig(R.string.STRING_URL_ID,tv_url.getText().toString());
-        SharedPreferenceUtils.saveConfig(R.string.STRING_LOGIN_NAME_ID,tv_username.getText().toString());
         presenter.login(tv_url.getText().toString(), tv_username.getText().toString(), tv_password.getText().toString());
     }
 
@@ -60,11 +52,6 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
     }
     @Override
     public void showLoginSuccess() {
-        if(dialog!= null)
-        {
-            dialog.dismiss();
-            dialog= null;
-        }
         finish();
         setIntentClass(MainActivity.class);
     }
@@ -76,7 +63,7 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @Override
     public void showUrlIsEmptyErrorMessage(){
-        tv_url.setError("请输入系统地址");
+        tv_url.setError("请输入Url");
         tv_url.setShakeAnimation();
     }
 
@@ -99,11 +86,6 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @Override
     public void showErrorView(String errMsg, @Nullable View.OnClickListener onClickListener) {
-        if(dialog!= null)
-        {
-            dialog.dismiss();
-            dialog= null;
-        }
         DialogUtils.showToast(this,errMsg, DialogUtils.ToastType.error);
 
     }
@@ -112,13 +94,8 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
     @Override
     public void showProcessing() {
 
-        dialog= ProgressDialog.show(this,"登陆","努力登陆中...");
-        dialog.show();
     }
 
-
-
-    private ProgressDialog dialog=null;
 
 }
 
