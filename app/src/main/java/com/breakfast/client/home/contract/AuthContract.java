@@ -2,6 +2,7 @@ package com.breakfast.client.home.contract;
 
 import com.breakfast.client.base.contract.BasePresenter;
 import com.breakfast.client.base.contract.BaseView;
+import com.breakfast.library.data.entity.user.UserModel;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -15,7 +16,7 @@ public interface AuthContract {
 
     interface View extends BaseView<Presenter> {
 
-        void showLoginSuccess();
+        void showLoginSuccess(UserModel userModel);
 
         void resetError();
 

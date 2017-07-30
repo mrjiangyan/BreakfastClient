@@ -12,11 +12,7 @@ import com.breakfast.client.R;
 import com.breakfast.library.util.SharedPreferenceUtils;
 
 
-public class SummaryFragment extends BaseFragment {
-
-    private TextView txtHotelTotalBreakfastCount = null;
-    private TextView txtHotelAvailableBreakfastCount = null;
-    private TextView txtHotelUseBreakfastCount = null;
+public class SettingFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,8 +21,8 @@ public class SummaryFragment extends BaseFragment {
         return inflater.inflate(R.layout.fragment_summary, container, false);
     }
 
-    public static SummaryFragment newInstance() {
-        SummaryFragment fragment = new SummaryFragment();
+    public static SettingFragment newInstance() {
+        SettingFragment fragment = new SettingFragment();
         return fragment;
     }
 
@@ -34,13 +30,6 @@ public class SummaryFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
        // mPresenter = new MyProfilePresenter(new OrgDataSourceImpl(), this);
         super.onViewCreated(view, savedInstanceState);
-        txtHotelTotalBreakfastCount=(TextView)view.findViewById(R.id.txtHotelTotalBreakfastCount);
-        txtHotelAvailableBreakfastCount=(TextView)view.findViewById(R.id.txtHotelTotalAvailableBreakfastCount);
-        txtHotelUseBreakfastCount=(TextView)view.findViewById(R.id.txtHotelTotalUseBreakfastCount);
-
-        txtHotelTotalBreakfastCount.setText(Integer.toString(SharedPreferenceUtils.getInt(R.string.STRING_HOTEL_BREAKFAST_TOTAL_COUNT_ID)));
-        txtHotelAvailableBreakfastCount.setText(Integer.toString(SharedPreferenceUtils.getInt(R.string.STRING_HOTEL_BREAKFAST_TOTAL_AVAILABLE_COUNT_ID)));
-        txtHotelUseBreakfastCount.setText(Integer.toString(SharedPreferenceUtils.getInt(R.string.STRING_HOTEL_BREAKFAST_USE_COUNT_ID)));
 
     }
 
@@ -53,7 +42,7 @@ public class SummaryFragment extends BaseFragment {
 
     @Override
     protected CharSequence getTitle() {
-        return "统计";
+        return "设置";
     }
 
 

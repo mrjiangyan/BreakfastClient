@@ -42,10 +42,7 @@ public class BreakfastPresenter implements BreakfastContract.Presenter {
             @Override
             public void onNext(HotelBreakfastSummary hotelBreakfastSummary) {
                 if (hotelBreakfastSummary != null) {
-                    SharedPreferenceUtils.saveConfig(R.string.STRING_HOTEL_BREAKFAST_TOTAL_COUNT_ID, hotelBreakfastSummary.getBreakfastTotalCount());
-                    SharedPreferenceUtils.saveConfig(R.string.STRING_HOTEL_BREAKFAST_TOTAL_AVAILABLE_COUNT_ID, hotelBreakfastSummary.getTotalAvailableBreakfastCount());
-                    SharedPreferenceUtils.saveConfig(R.string.STRING_HOTEL_BREAKFAST_USE_COUNT_ID, hotelBreakfastSummary.getBreakfastUseCount());
-                    mView.showHotelBreakfastSummary();
+                    mView.showHotelBreakfastSummary(hotelBreakfastSummary);
                 } else {
                     mView.showErrorView(null, null);
                 }

@@ -13,8 +13,6 @@ import android.net.Uri;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.MifareClassic;
-import android.nfc.tech.MifareUltralight;
-import android.nfc.tech.Ndef;
 import android.nfc.tech.NfcB;
 import android.os.Bundle;
 import android.support.v13.app.ActivityCompat;
@@ -29,16 +27,17 @@ import com.breakfast.client.R;
 import com.breakfast.client.base.BaseActivity;
 import com.breakfast.client.base.BaseFragment;
 import com.breakfast.client.home.fragment.ConsumeFragment;
-import com.breakfast.client.home.fragment.SummaryFragment;
+import com.breakfast.client.home.fragment.SettingFragment;
 import com.breakfast.client.util.ActivityUtils;
 import com.breakfast.client.util.DialogUtils;
 import com.breakfast.client.util.NfcUtils;
 import com.breakfast.client.util.StatisticsUtils;
 import com.breakfast.library.data.entity.MifareData;
+import com.breakfast.library.data.entity.user.UserModel;
+import com.breakfast.library.util.ResourceUtils;
 import com.breakfast.library.util.StringUtils;
 
 import java.io.IOException;
-import java.util.Calendar;
 import java.util.HashMap;
 
 import butterknife.BindView;
@@ -61,6 +60,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     // 是否支持NFC功能的标签
     private boolean isNFC_support = false;
 
+    private UserModel userModel;
+
     private final int MY_PERMISSIONS_REQUEST_READ_CONTACTS=1000;
 
     private BaseFragment lastFragment;
@@ -82,6 +83,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     protected void initViews(Bundle savedInstanceState) {
         bottomNavigationBar.setActiveColor(R.color.white).setInActiveColor(R.color.colorPrimaryDark).setBarBackgroundColor(android.R.color.holo_blue_dark);
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
+        Intent intent = this.getIntent();
+        userModel=(UserModel) intent.getSerializableExtra(ResourceUtils.getString(R.string.USER_MODEL));
         bottomNavigationBar.setTabSelectedListener(this);
         bottomNavigationBar.
                 addItem(new BottomNavigationItem(R.drawable.ic_event_black_24dp, "消费"))
@@ -96,42 +99,32 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
 
     @Override
     public void onTabSelected(int position) {
-        String key=position+"";
-        if(map.containsKey(key))
-        {
+        String key = position + "";
+        if (map.containsKey(key)) {
             ActivityUtils.addFragment(
-                    this,lastFragment, map.get(key));
-            lastFragment=map.get(key);
+                    this, lastFragment, map.get(key));
+            lastFragment = map.get(key);
             return;
         }
-        statistics(StatisticsUtils.TYPE_TOUCH,"onTabSelected:"+position);
-        BaseFragment fragment=null;
-        if(position==0)
-        {
-
-            fragment= ConsumeFragment.newInstance();
-
+        statistics(StatisticsUtils.TYPE_TOUCH, "onTabSelected:" + position);
+        BaseFragment fragment = null;
+        if (position == 0) {
+            fragment = ConsumeFragment.newInstance();
+        } else if (position == 1) {
+            fragment = SettingFragment.newInstance();
         }
-        else if(position==1)
-        {
-            fragment= SummaryFragment.newInstance();
-
-        }
-        if(fragment==null)
+        if (fragment == null)
             return;
-        map.put(key,fragment);
-        if(lastFragment==null)
-        {
+        map.put(key, fragment);
+        if (lastFragment == null) {
 
             ActivityUtils.addFragmentToActivity(
                     this, fragment);
-        }
-        else
-        {
+        } else {
             ActivityUtils.addFragment(
-                    this,lastFragment, map.get(key));
+                    this, lastFragment, map.get(key));
         }
-        lastFragment=fragment;
+        lastFragment = fragment;
     }
     @Override
     public void onTabUnselected(int position) {

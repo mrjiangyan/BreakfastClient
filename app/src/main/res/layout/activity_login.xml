@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="域名"
+                android:hint="Pms域名"
 
                 android:inputType="textUri" />
 
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="用户名"
+                android:hint="Pms用户名"
                 android:inputType="textCapWords" />
 
             <com.breakfast.client.view.DeletableEditText
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="密码"
+                android:hint="Pms密码"
                 android:inputType="textPassword" />
 
             <LinearLayout

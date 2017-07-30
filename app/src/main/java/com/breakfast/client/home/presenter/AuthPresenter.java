@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.breakfast.client.R;
 import com.breakfast.client.home.contract.AuthContract;
+import com.breakfast.library.app.BaseApplication;
 import com.breakfast.library.data.entity.user.User;
 import com.breakfast.library.data.entity.user.UserModel;
 import com.breakfast.library.data.source.datasource.AuthDataSource;
@@ -12,6 +13,7 @@ import com.breakfast.library.data.source.datasource.BreakfastDataSource;
 import com.breakfast.library.data.source.impl.BreakfastDataSourceImpl;
 import com.breakfast.library.network.internal.ApiException;
 import com.breakfast.library.network.internal.ErrorSubscriber;
+import com.breakfast.library.util.SecurityUtil;
 import com.breakfast.library.util.SharedPreferenceUtils;
 
 
@@ -68,19 +70,16 @@ public class AuthPresenter implements AuthContract.Presenter {
         user.setShift("0");
 
         mSource.login(user,new ErrorSubscriber<UserModel>() {
-            @Override public void onNext(UserModel userModelResultModel) {
+            @Override public void onNext(UserModel userModel) {
 
-                if (userModelResultModel != null) {
-
-                    SharedPreferenceUtils.saveConfig(R.string.STRING_URL_ID, user.getUrl());
-                    SharedPreferenceUtils.saveConfig(R.string.STRING_LOGIN_NAME_ID, user.getUserName());
-                    SharedPreferenceUtils.saveConfig(R.string.STRING_ORG_NAME_ID, userModelResultModel.getOrgName());
-                    SharedPreferenceUtils.saveConfig(R.string.STRING_EMPLOYEE_NAME_ID, userModelResultModel.getEmployeeName());
-                    mView.showLoginSuccess();
+                if (userModel != null) {
+                    SecurityUtil.save(BaseApplication.getInstance(),user);
+                    SharedPreferenceUtils.saveConfig(R.string.STRING_LAST_LOGIN_SUCCESS_URL_ID, user.getUrl());
+                    SharedPreferenceUtils.saveConfig(R.string.STRING_LAST_LOGIN_SUCCESS_NAME_ID, user.getUserName());
+                    mView.showLoginSuccess(userModel);
                 } else {
                     mView.showErrorView(null, null);
                 }
-
 
             }
 

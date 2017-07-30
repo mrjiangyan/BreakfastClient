@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="should_input_url">请输入Pms域名</string>
+    <string name="should_input_username">请输入Pms用户名</string>
+    <string name="should_input_password">请输入Pms密码</string>
+</resources>

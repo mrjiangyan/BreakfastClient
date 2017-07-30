@@ -13,6 +13,7 @@ import com.apkfuns.logutils.LogUtils;
 import com.breakfast.client.R;
 import com.breakfast.client.base.BaseActivity;
 import com.breakfast.client.home.contract.AuthContract;
+import com.breakfast.library.data.entity.user.UserModel;
 import com.breakfast.library.util.SecurityUtil;
 
 public class SplashActivity extends BaseActivity implements AuthContract.View {
@@ -81,7 +82,7 @@ public class SplashActivity extends BaseActivity implements AuthContract.View {
     }
 
     @Override
-    public void showLoginSuccess() {
+    public void showLoginSuccess(UserModel userModel) {
         gotoHome();
     }
 
