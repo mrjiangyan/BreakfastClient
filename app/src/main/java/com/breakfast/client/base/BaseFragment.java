@@ -97,10 +97,12 @@ public abstract class BaseFragment extends Fragment {
     } catch (ClassCastException e) {
       throw new ClassCastException(context.toString() + " must extends BaseActivity");
     }
+    LogUtils.w(getClass().getName()+ "-onAttach");
   }
 
   @Override
   public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    LogUtils.w(getClass().getName()+ "-onCreateOptionsMenu");
     menu.clear();
   }
 
@@ -126,6 +128,7 @@ public abstract class BaseFragment extends Fragment {
 
   protected boolean isShowNavigation()
   {
+    LogUtils.w(getClass().getName()+ "-isShowNavigation");
     return true;
   }
 
@@ -159,9 +162,7 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
-
-
-
+    LogUtils.w(getClass().getName()+ "-onViewCreated");
   }
 
   protected void setTitle(CharSequence title)
@@ -183,6 +184,7 @@ public abstract class BaseFragment extends Fragment {
   @Override public void onDetach() {
     super.onDetach();
     mActivity = null;
+    LogUtils.w(getClass().getName()+ "-onDetach");
   }
 
   @Override public void onHiddenChanged(boolean hidden) {

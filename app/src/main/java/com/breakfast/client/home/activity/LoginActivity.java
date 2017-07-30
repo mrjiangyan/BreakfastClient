@@ -1,8 +1,11 @@
 package com.breakfast.client.home.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.Toast;
 
 import com.breakfast.client.home.contract.AuthContract;
 import com.breakfast.client.util.DialogUtils;
@@ -10,7 +13,12 @@ import com.breakfast.client.R;
 import com.breakfast.client.base.BaseActivity;
 import com.breakfast.client.home.presenter.AuthPresenter;
 import com.breakfast.client.view.DeletableEditText;
+import com.breakfast.library.app.BreakfastApplication;
+import com.breakfast.library.data.entity.user.User;
+import com.breakfast.library.data.entity.user.UserModel;
 import com.breakfast.library.data.source.impl.AuthDataSourceImpl;
+import com.breakfast.library.util.ResourceUtils;
+import com.breakfast.library.util.SecurityUtil;
 import com.breakfast.library.util.SharedPreferenceUtils;
 
 import butterknife.BindView;
@@ -47,11 +55,13 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
     @Override
     protected void initViews(Bundle savedInstanceState) {
         presenter = new AuthPresenter(new AuthDataSourceImpl(), this);
-        tv_url.setText(SharedPreferenceUtils.getString(R.string.STRING_URL_ID));
-        tv_username.setText(SharedPreferenceUtils.getString(R.string.STRING_LOGIN_NAME_ID));
+        tv_url.setText(SharedPreferenceUtils.getString(R.string.STRING_LAST_LOGIN_SUCCESS_URL_ID));
+        tv_username.setText(SharedPreferenceUtils.getString(R.string.STRING_LAST_LOGIN_SUCCESS_NAME_ID));
     }
     @Override
-    public void showLoginSuccess() {
+    public void showLoginSuccess(UserModel userModel) {
+        ((BreakfastApplication)getApplication()).setUserModel(userModel);
+
         finish();
         setIntentClass(MainActivity.class);
     }
@@ -63,19 +73,19 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @Override
     public void showUrlIsEmptyErrorMessage(){
-        tv_url.setError("请输入Url");
+        tv_url.setError(ResourceUtils.getString(R.string.should_input_url));
         tv_url.setShakeAnimation();
     }
 
     @Override
     public void showPasswordIsEmptyErrorMessage() {
-        tv_password.setError("请输入密码");
+        tv_password.setError(ResourceUtils.getString(R.string.should_input_password));
         tv_password.setShakeAnimation();
     }
 
     @Override
     public void showAccountIsEmptyErrorMessage() {
-        tv_username.setError("请输入账号");
+        tv_username.setError(ResourceUtils.getString(R.string.should_input_username));
         tv_username.setShakeAnimation();
     }
 
