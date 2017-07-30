@@ -2,6 +2,8 @@ package com.breakfast.library.data.source.impl;
 
 import android.support.annotation.NonNull;
 
+import com.breakfast.library.data.entity.base.ApiResponse;
+import com.breakfast.library.data.entity.breakfast.ConsumeBreakfast;
 import com.breakfast.library.data.entity.breakfast.HotelBreakfastSummary;
 import com.breakfast.library.data.source.datasource.BreakfastDataSource;
 import com.breakfast.library.network.protocol.ServiceFactory;
@@ -38,5 +40,24 @@ public class BreakfastDataSourceImpl implements BreakfastDataSource {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
+    }
+
+   /* @Override
+    public void getRoomNumbers(@NonNull Subscriber<String[]> subscriber,String roomNumber) {
+        breakfastService.getRoomNumbers(roomNumber)
+                .map(new ApiResponseFunc<>())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }*/
+
+    @Override
+    public void consumeBreakfast(@NonNull ConsumeBreakfast model) {
+        //do subscriber
+         breakfastService.postConsumeBreakfast(model)
+                 .map(new ApiResponseFunc<>())
+                 .subscribeOn(Schedulers.io())
+                 .observeOn(AndroidSchedulers.mainThread())
+                 .subscribe();
     }
 }
