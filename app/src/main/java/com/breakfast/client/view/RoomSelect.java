@@ -93,7 +93,7 @@ public class RoomSelect extends Activity implements View.OnClickListener {
             }
         });
         TextView btnZero =(TextView)findViewById(R.id.zero);
-        btnNine.setOnClickListener(new View.OnClickListener() {
+        btnZero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 txtRoomNumber.setText(txtRoomNumber.getText()+"0");
@@ -110,7 +110,13 @@ public class RoomSelect extends Activity implements View.OnClickListener {
                 }
             }
         });
-
+      btnDel.setOnLongClickListener(new View.OnLongClickListener() {
+          @Override
+          public boolean onLongClick(View view) {
+              txtRoomNumber.setText(null);
+              return  true;
+          }
+      });
         txtRoomNumber.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -126,6 +132,12 @@ public class RoomSelect extends Activity implements View.OnClickListener {
             public void afterTextChanged(Editable editable) {
                 if (editable.length() > 2) {
                     //do get
+                }
+                if (editable.length() > 20) {
+                    txtRoomNumber.setError("房间号不能超过20位！");
+                }
+                if (editable.length() <= 20) {
+                    txtRoomNumber.setError(null);
                 }
             }
         });
@@ -169,4 +181,11 @@ public class RoomSelect extends Activity implements View.OnClickListener {
 
 
     }
+
+    private  void  error(TextView tv)
+    {
+        tv.setError("aaa");
+
+    }
+
 }

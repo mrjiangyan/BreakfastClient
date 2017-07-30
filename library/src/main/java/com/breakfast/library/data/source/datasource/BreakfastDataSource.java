@@ -2,6 +2,7 @@ package com.breakfast.library.data.source.datasource;
 
 import android.support.annotation.NonNull;
 
+import com.breakfast.library.data.entity.breakfast.ConsumeBreakfast;
 import com.breakfast.library.data.entity.breakfast.HotelBreakfastSummary;
 
 import rx.Subscriber;
@@ -12,4 +13,8 @@ import rx.Subscriber;
 
 public interface BreakfastDataSource {
     void getHotelBreakfastSummary(@NonNull Subscriber<HotelBreakfastSummary> subscriber);
+
+    //void getRoomNumbers(@NonNull Subscriber<HotelBreakfastSummary> subscriber,String roomNumber);
+
+    void  consumeBreakfast(@NonNull ConsumeBreakfast model);
 }
