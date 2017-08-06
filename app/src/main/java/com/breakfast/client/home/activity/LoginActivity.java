@@ -2,12 +2,15 @@ package com.breakfast.client.home.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Toast;
 
 import com.breakfast.client.home.contract.AuthContract;
+import com.breakfast.client.home.fragment.ConsumeFragment;
 import com.breakfast.client.util.DialogUtils;
 import com.breakfast.client.R;
 import com.breakfast.client.base.BaseActivity;
@@ -58,7 +61,8 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
         presenter = new AuthPresenter(new AuthDataSourceImpl(), this);
         tv_url.setText(SharedPreferenceUtils.getString(R.string.STRING_LAST_LOGIN_SUCCESS_URL_ID));
         tv_username.setText(SharedPreferenceUtils.getString(R.string.STRING_LAST_LOGIN_SUCCESS_NAME_ID));
-        setContentView(R.layout.fragment_consume);
+        Intent in = new Intent(this, MainActivity.class);
+        startActivity(in);
     }
     @Override
     public void showLoginSuccess(UserModel userModel) {

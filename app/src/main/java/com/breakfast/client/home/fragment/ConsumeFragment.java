@@ -72,6 +72,7 @@ public class ConsumeFragment extends BaseFragment implements BreakfastContract.V
         init(view);
         super.onViewCreated(view, savedInstanceState);
 
+
     }
 
     private void init(View v) {

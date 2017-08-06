@@ -1,5 +1,6 @@
 package com.breakfast.client.home.presenter;
 
+import android.os.Parcel;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
@@ -46,7 +47,7 @@ public class AuthPresenter implements AuthContract.Presenter {
     @Override
     public void login(CharSequence url, CharSequence account, CharSequence password){
         mView.resetError();
-        mView.showLoginSuccess(null);
+        //mView.showLoginSuccess(new UserModel(new Parcel()));
         // Check for a valid email address.
         if (TextUtils.isEmpty(url)) {
             mView.showUrlIsEmptyErrorMessage();
