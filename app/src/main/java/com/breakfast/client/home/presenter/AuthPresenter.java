@@ -46,6 +46,7 @@ public class AuthPresenter implements AuthContract.Presenter {
     @Override
     public void login(CharSequence url, CharSequence account, CharSequence password){
         mView.resetError();
+        mView.showLoginSuccess(null);
         // Check for a valid email address.
         if (TextUtils.isEmpty(url)) {
             mView.showUrlIsEmptyErrorMessage();

@@ -62,6 +62,8 @@
             android:layout_alignParentLeft="true" />
 
 
+
+
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/indexUser"
@@ -230,7 +232,7 @@
                     <TextView
                         android:id="@+id/zero"
                         style="@style/num_keyboard"
-                        android:tag="7"
+                        android:tag="0"
                         android:layout_height="160dp"
                         android:text="0" />
 
@@ -259,3 +261,4 @@
 
 
 </LinearLayout>
+

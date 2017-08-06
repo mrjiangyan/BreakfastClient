@@ -8,6 +8,8 @@ import com.breakfast.library.data.entity.breakfast.HotelBreakfastSummary;
 import com.breakfast.library.data.source.datasource.BreakfastDataSource;
 import com.breakfast.library.network.protocol.ServiceFactory;
 import com.breakfast.library.network.protocol.security.IBreakfastService;
+import java.util.ArrayList;
+import java.util.List;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -42,14 +44,20 @@ public class BreakfastDataSourceImpl implements BreakfastDataSource {
                 .subscribe(subscriber);
     }
 
-   /* @Override
-    public void getRoomNumbers(@NonNull Subscriber<String[]> subscriber,String roomNumber) {
-        breakfastService.getRoomNumbers(roomNumber)
+    @Override
+    public void getBreakfastLists() {
+        List<String> rooms = new ArrayList<>();
+        rooms.add("1001");
+        rooms.add("1002");
+        rooms.add("1003");
+        rooms.add("1004");
+        //do subscriber
+        breakfastService.getRoomNumbers(null)
                 .map(new ApiResponseFunc<>())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscriber);
-    }*/
+                .subscribe();
+    }
 
     @Override
     public void consumeBreakfast(@NonNull ConsumeBreakfast model) {

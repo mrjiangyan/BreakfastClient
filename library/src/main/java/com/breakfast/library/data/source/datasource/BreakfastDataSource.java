@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 
 import com.breakfast.library.data.entity.breakfast.ConsumeBreakfast;
 import com.breakfast.library.data.entity.breakfast.HotelBreakfastSummary;
+import java.util.ArrayList;
+import java.util.List;
 
 import rx.Subscriber;
 
@@ -14,7 +16,7 @@ import rx.Subscriber;
 public interface BreakfastDataSource {
     void getHotelBreakfastSummary(@NonNull Subscriber<HotelBreakfastSummary> subscriber);
 
-    //void getRoomNumbers(@NonNull Subscriber<HotelBreakfastSummary> subscriber,String roomNumber);
+    void getBreakfastLists();
 
-    void  consumeBreakfast(@NonNull ConsumeBreakfast model);
+    void consumeBreakfast(@NonNull ConsumeBreakfast model);
 }

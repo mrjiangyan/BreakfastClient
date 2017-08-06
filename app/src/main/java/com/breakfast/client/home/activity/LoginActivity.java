@@ -54,14 +54,15 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
+
         presenter = new AuthPresenter(new AuthDataSourceImpl(), this);
         tv_url.setText(SharedPreferenceUtils.getString(R.string.STRING_LAST_LOGIN_SUCCESS_URL_ID));
         tv_username.setText(SharedPreferenceUtils.getString(R.string.STRING_LAST_LOGIN_SUCCESS_NAME_ID));
+        setContentView(R.layout.fragment_consume);
     }
     @Override
     public void showLoginSuccess(UserModel userModel) {
         ((BreakfastApplication)getApplication()).setUserModel(userModel);
-
         finish();
         setIntentClass(MainActivity.class);
     }
